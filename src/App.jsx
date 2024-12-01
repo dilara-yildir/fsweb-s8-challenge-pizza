@@ -13,13 +13,13 @@ function App() {
 }
 
 const Main = () => {
-  const [currentPage] = usePageContext();
+  const {currentPage} = usePageContext();
 
   return (
     <>
-      {currentPage === "home" && <HomePage />}
-      {currentPage === "order" && <OrderForm />}
-      {currentPage === "success" && <SuccessOrder />}
+      {currentPage === "home" && <HomePage/>}
+      {currentPage === "order" && <OrderForm/>}
+      {currentPage === "success" && <SuccessOrder/>}
     </>
   );
 };

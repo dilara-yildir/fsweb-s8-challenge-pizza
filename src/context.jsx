@@ -1,24 +1,23 @@
-import { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-// Context oluşturma
-const PageContext = createContext();
+// Context oluşturuluyor
+const PageContext = createContext({
+    currentPage: "home", // Varsayılan sayfa
+    setCurrentPage: () => {} // Boş fonksiyon
+});
+
+// custom hook ile context'e erişim sağlıyoruz
+export function usePageContext() {
+    return useContext(PageContext);
+}
 
 // Provider bileşeni
-export const PageProvider = ({ children }) => {
-  const [currentPage, setCurrentPage] = useState("home");
+export function PageProvider({ children }) {
+    const [currentPage, setCurrentPage] = useState("home"); // State tanımlanıyor
 
-  return (
-    <PageContext.Provider value={[currentPage, setCurrentPage]}>
-      {children}
-    </PageContext.Provider>
-  );
-};
-
-// Context'e erişim sağlayan custom hook
-export const usePageContext = () => {
-  const context = useContext(PageContext);
-  if (!context) {
-    throw new Error("usePageContext must be used within a PageProvider");
-  }
-  return context;
-};
+    return (
+        <PageContext.Provider value={{ currentPage, setCurrentPage }}>
+            {children}
+        </PageContext.Provider>
+    );
+}

@@ -12,13 +12,13 @@ import {
   CardBody,
   FormText,
 } from "reactstrap";
-import { useNavigate } from "react-router-dom";
+import {usePageContext } from "../context";
 import logo from "/assets/Iteration-1-assets/logo.svg";
 
 import axios from "axios";
 
 const OrderForm = () => {
-  const navigate = useNavigate();
+  const {setCurrentPage} = usePageContext();
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     size: "",
@@ -116,7 +116,7 @@ const OrderForm = () => {
       axios
         .post("https://reqres.in/api/pizza", formData)
         .then(() => {
-          navigate("/success"); // Başarılı işlem sonrası yönlendirme
+          setCurrentPage("success"); // Başarılı işlem sonrası yönlendirme
         })
         .catch((error) => {
           console.error("Sipariş gönderilirken bir hata oluştu:", error);
