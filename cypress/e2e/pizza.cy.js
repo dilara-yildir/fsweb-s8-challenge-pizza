@@ -1,28 +1,28 @@
 describe('Pizza Sipariş Testi', () => {
     beforeEach(() => {
-        // Uygulamanın başlangıç adresine gidin
-        cy.visit('http://localhost:5173'); // Projenin çalıştığı yerel adresi kontrol edin
+        //başlangıç adresi
+        cy.visit('http://localhost:5173'); 
     });
 
     it('Başarılı bir şekilde pizza siparişi oluşturulmalı', () => {
         // Sipariş sayfasına git
-        cy.contains('ACIKTIM') // Sipariş sayfasına yönlendiren bağlantıyı seç
+        cy.contains('ACIKTIM') 
             .click();
 
-        // Boyut seçimi yap
+        // Boyut seçimi 
         cy.get('input[name="size"][value="Büyük"]').check();
 
 
-        // Hamur seçimi yap
+        // Hamur seçimi 
         cy.get('select[name="dough"]').select('İnce');
 
 
-        // Checkbox'ların mevcut olduğunu kontrol edin
+        
         cy.get('form')
             .find('input[type="checkbox"]')
-            .should('have.length.gte', 10); // En az 10 checkbox var mı kontrol edin
+            .should('have.length.gte', 10); 
 
-        // 10 malzeme seç
+        
         cy.get('form')
             .find('input[type="checkbox"]')
             .check([
@@ -32,13 +32,13 @@ describe('Pizza Sipariş Testi', () => {
                 'Sucuk',
                 'Mısır',
                 'Jalepeno',
-                'soğan',
+                'Soğan',
                 'Ananas',
                 'Kanada Jambonu',
                 'Tavuk Izgara',
             ]);
 
-        // Seçilen checkbox sayısını doğrula
+       
         cy.get('form')
             .find('input[type="checkbox"]:checked')
 

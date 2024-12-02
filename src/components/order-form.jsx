@@ -18,7 +18,7 @@ import logo from "/assets/Iteration-1-assets/logo.svg";
 import axios from "axios";
 
 const OrderForm = () => {
-  const {setCurrentPage} = usePageContext();
+  const {setCurrentPage,pizza} = usePageContext();
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     size: "",
@@ -35,15 +35,13 @@ const OrderForm = () => {
     sosis: 5,
     Mısır: 5,
     Sucuk: 5,
-    Domates: 5,
     "Kanada Jambonu": 5,
     Ananas: 5,
-    Biber: 5,
     "Tavuk Izgara": 5,
     Jalepeno: 5,
-    kabak: 5,
-    soğan: 5,
-    sarımsak: 5,
+    Kabak: 5,
+    Soğan: 5,
+    Sarımsak: 5,
   };
 
   const handleChange = (e) => {
@@ -75,16 +73,18 @@ const OrderForm = () => {
           : 1,
     }));
   };
-  const calculateTotal = () => {
-    const basePrice =
-      formData.size === "Büyük" ? 85 : formData.size === "Orta" ? 70 : 60;
+ const calculateTotal = () => {
+   
+   const basePrice =
+     formData.size === "Büyük" ? 85 : formData.size === "Orta" ? 70 : 60;
+     if (!formData.size) return 0;
 
-    const toppingsCost = formData.toppings.reduce(
-      (total, topping) => total + toppingsPrices[topping],
-      0
-    );
-    return (basePrice + toppingsCost) * formData.quantity;
-  };
+   const toppingsCost = formData.toppings.reduce(
+     (total, topping) => total + toppingsPrices[topping],
+     0
+   );
+   return (basePrice + toppingsCost) * formData.quantity;
+ };
 
   const calculateSelectionsTotal = () => {
     // calculateTotal sonucundan sadece ek malzeme toplamını çıkar
@@ -138,13 +138,21 @@ const OrderForm = () => {
       </div>
 
       <Container
-        style={{ maxWidth: "600px", margin: "20px auto", padding: "5px 5px" }}
+        style={{ maxWidth: "540px", margin: "35px auto", padding: "5px 5px" }}
       >
         {/* Pizza Başlık ve Açıklama */}
         <Row className="mb-4">
           <Col>
-            <h2>Position Absolute Acı Pizza</h2>
-            <h3
+            <h5
+              style={{
+                fontFamily: "barlow",
+                fontWeight: "bold",
+                color: "#292929",
+              }}
+            >
+              Position Absolute Acı Pizza
+            </h5>
+            <h4
               style={{
                 fontFamily: "barlow",
                 fontWeight: "bold",
@@ -152,7 +160,12 @@ const OrderForm = () => {
               }}
             >
               85.50₺
-            </h3>
+            </h4>
+            <div style={{ display: "flex", justifyContent: "right" }}>
+              <span>4.9</span>
+
+              <span>(200)</span>
+            </div>
             <p
               className="text-muted mt-3"
               style={{ lineHeight: "1.6", fontSize: "1rem", textAlign: "left" }}
@@ -243,6 +256,16 @@ const OrderForm = () => {
           </FormGroup>
 
           <FormGroup>
+            <Form>
+              Ad Soyad
+              <Input
+                type="text"
+                name="name"
+                placeholder="Ad Soyad Giriniz"
+                value={formData.name}
+                onChange={handleChange}
+              />
+            </Form>
             <Label for="specialInstructions">Sipariş Notu</Label>
             <Input
               type="textarea"
@@ -272,25 +295,16 @@ const OrderForm = () => {
                     color="warning"
                     onClick={() => handleQuantityChange("decrease")}
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      x="0px"
-                      y="0px"
-                      width="10"
-                      height="30"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z"
-                      ></path>
-                    </svg>
+                    -
                   </Button>
                   <div
                     style={{
                       maxWidth: "50px",
                       textAlign: "center",
                       fontSize: "1.2rem",
+                      border: "1px solid #ccc",
+                      padding: " 3.5px 15px",
+                      borderRadius: "5px",
                     }}
                   >
                     {formData.quantity}
@@ -300,34 +314,24 @@ const OrderForm = () => {
                     color="warning"
                     onClick={() => handleQuantityChange("increase")}
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      x="0px"
-                      y="0px"
-                      width="10"
-                      height="30"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z"
-                      ></path>
-                    </svg>
+                    +
                   </Button>
                 </div>
               </FormGroup>
             </Col>
-            <Col sm="6" style={{marginBottom:50}}>
+            <Col sm="6" style={{ marginBottom: 50 }}>
               <Card className="p-3">
                 <CardBody>
                   <h5>Sipariş Toplamı</h5>
                   <p>
                     Seçimler: {calculateTotal() - calculateSelectionsTotal()}₺
                   </p>
-                  <p>Toplam: {calculateTotal().toFixed(2)}₺</p>
+                  <p style={{ color: "#CE2829" }}>
+                    Toplam: {calculateTotal().toFixed(2)}₺
+                  </p>
                 </CardBody>
               </Card>
-              <Button  type="submit" color="warning" block >
+              <Button type="submit" color="warning" block>
                 Sipariş Ver
               </Button>
             </Col>

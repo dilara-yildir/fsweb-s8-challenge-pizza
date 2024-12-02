@@ -2,22 +2,32 @@ import React, { createContext, useContext, useState } from "react";
 
 // Context oluşturuluyor
 const PageContext = createContext({
-    currentPage: "home", // Varsayılan sayfa
-    setCurrentPage: () => {} // Boş fonksiyon
+  currentPage: "home",
+  setCurrentPage: () => {},
+  pizza: {},
+  setPizza: () => {},
 });
 
-// custom hook ile context'e erişim sağlıyoruz
+
 export function usePageContext() {
-    return useContext(PageContext);
+  return useContext(PageContext);
 }
 
 // Provider bileşeni
 export function PageProvider({ children }) {
-    const [currentPage, setCurrentPage] = useState("home"); // State tanımlanıyor
+  const [currentPage, setCurrentPage] = useState("home");
+  const [pizza, setPizza] = useState({}); 
 
-    return (
-        <PageContext.Provider value={{ currentPage, setCurrentPage }}>
-            {children}
-        </PageContext.Provider>
-    );
+  return (
+    <PageContext.Provider
+      value={{
+        currentPage,
+        setCurrentPage,
+        pizza,
+        setPizza,
+      }}
+    >
+      {children}
+    </PageContext.Provider>
+  );
 }

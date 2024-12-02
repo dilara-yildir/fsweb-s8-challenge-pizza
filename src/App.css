@@ -48,7 +48,6 @@ header {
   background-position: center;
   height: 100vh;
   width: 100vw;
-  /* Tam ekran genişlik */
   margin: 0;
   padding: 0;
 }
@@ -71,7 +70,12 @@ html {
   height: 100%;
   overflow-x: hidden;
   font-family: "barlow";
-  /* Yatay kaydırmayı engelle */
+}
+
+ h5 {
+  font-family: "barlow";
+  font-weight: "bold";
+  color: "#333";
 }
 
 /* Logo stilleri */
@@ -93,11 +97,8 @@ header {
 
 header .logo {
   width: 300px;
-  /* Logonun genişliği artırıldı */
   height: auto;
-  /* Orantılı yükseklik */
   margin-bottom: 1rem;
-  /* Altta boşluk */
   position: relative;
   top: -250px;
   
@@ -107,10 +108,8 @@ header .logo {
 
 header .tagline {
   font-size: 2.5rem;
-  /* Metin boyutu */
   font-weight: bold;
   margin: 1rem 0;
-  /* Üst ve alt boşluk */
   
   
 }
@@ -118,10 +117,9 @@ header .tagline {
 header .description {
   font-family:"barlow" ;
   color: #FAF7F2;
-  font-size: 5rem;
-  /* Alt metin boyutu */
+  font-weight: 400;
+  font-size: 4rem;
   margin-bottom: 4rem;
-  /* Alt boşluk */
   line-height: 0.3;
   position: relative;
   top: -200px;
@@ -133,15 +131,11 @@ header .order-button {
   font-family: "barlow";
   font-weight: bold;
   background-color: #FDC913;
-  /* Sarı renk */
   color: black;
   font-size: 0.75rem;
-  /* Buton boyutu */
   padding: 0.5rem 2.5rem;
-  /* Buton iç boşlukları */
   border: none;
   border-radius: 100px;
-  /* Yuvarlatılmış köşeler */
   position: relative;
   top: -190px;
   cursor: pointer;
@@ -153,9 +147,7 @@ header .order-button {
 
 header .order-button:hover {
   background-color: FDC913;
-  /* Hover rengi */
   transform: scale(1.05);
-  /* Hover büyüme efekti */
 }
 
 .success-order {
@@ -181,7 +173,7 @@ header .order-button:hover {
   /* Logonun genişliği */
   margin-bottom:12rem;
   /* Alt boşluk */
-  margin-top: -50px;
+  margin-top:50px;
 
 }
 

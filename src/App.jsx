@@ -13,7 +13,7 @@ function App() {
 }
 
 const Main = () => {
-  const {currentPage} = usePageContext();
+  const {currentPage,pizza} = usePageContext();
 
   return (
     <>
