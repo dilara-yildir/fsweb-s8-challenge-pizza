@@ -13,6 +13,7 @@ import {
   FormText,
 } from "reactstrap";
 import { usePageContext } from "../context";
+import { NavLink } from "react-router-dom";
 import logo from "/assets/Iteration-1-assets/logo.svg";
 
 import axios from "axios";
@@ -32,7 +33,7 @@ const OrderForm = () => {
     Pepperoni: 5,
     Domates: 5,
     Biber: 5,
-    sosis: 5,
+    Sosis: 5,
     Mısır: 5,
     Sucuk: 5,
     "Kanada Jambonu": 5,
@@ -86,10 +87,10 @@ const OrderForm = () => {
   };
 
   const calculateSelectionsTotal = () => {
-    // calculateTotal sonucundan sadece ek malzeme toplamını çıkar
+    // calculateTotal sonucundan sadece ek malzeme toplamını çıkarır
     const total = calculateTotal();
 
-    // Ek malzeme fiyatlarını hesapla
+    // Ek malzeme fiyatlarını hesaplar
     const toppingsCost = formData.toppings.reduce(
       (total, topping) => total + toppingsPrices[topping],
       0
@@ -115,7 +116,7 @@ const OrderForm = () => {
       axios
         .post("https://reqres.in/api/pizza", formData)
         .then(() => {
-          setCurrentPage("success"); // Başarılı işlem sonrası yönlendirme
+          setCurrentPage("success"); 
         })
         .catch((error) => {
           console.error("Sipariş gönderilirken bir hata oluştu:", error);
@@ -134,6 +135,46 @@ const OrderForm = () => {
         }}
       >
         <img src={logo} alt="Teknolojik Yemekler" style={{ width: "280px" }} />
+    
+        <nav
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "10px",
+            margin: "2px auto",
+            paddingTop: "10px",
+            
+          }}
+        >
+          <NavLink
+            to="/home-page"
+            style={({ isActive }) =>
+              isActive
+                ? {
+                    fontWeight: "bold",
+                    color: "#FAF7F2",
+                    textDecoration: "none",
+                  }
+                : { color: "#FAF7F2", textDecoration: "none" }
+            }
+          >
+            Anasayfa
+          </NavLink>
+          <NavLink
+            to="/order-form"
+            style={({ isActive }) =>
+              isActive
+                ? {
+                    fontWeight: "bold",
+                    color: "#FAF7F2",
+                    textDecoration: "none",
+                  }
+                : { color: "#FAF7F2", textDecoration: "none" }
+            }
+          >
+            Sipariş Oluştur
+          </NavLink>
+        </nav>
       </div>
 
       <Container
@@ -335,7 +376,7 @@ const OrderForm = () => {
                 <CardBody>
                   <h5>Sipariş Toplamı</h5>
 
-                  <Row>
+                  <Row style={{ color: "#292929" }}>
                     <Col>Seçimler</Col>
                     <Col>
                       {(calculateTotal() - calculateSelectionsTotal()).toFixed(
