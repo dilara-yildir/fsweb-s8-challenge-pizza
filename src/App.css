@@ -14,10 +14,6 @@
 }
 
 
-
-
-
-
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -116,6 +112,7 @@ header .tagline {
 
 header .description {
   font-family:"barlow" ;
+  font-weight: lighter;
   color: #FAF7F2;
   font-weight: 400;
   font-size: 4rem;
@@ -123,7 +120,7 @@ header .description {
   line-height: 0.3;
   position: relative;
   top: -200px;
-  letter-spacing: -2px;
+  
 }
 
 
@@ -131,8 +128,8 @@ header .order-button {
   font-family: "barlow";
   font-weight: bold;
   background-color: #FDC913;
-  color: black;
-  font-size: 0.75rem;
+  color: #292929;
+  font-size: 1rem;
   padding: 0.5rem 2.5rem;
   border: none;
   border-radius: 100px;
@@ -140,39 +137,29 @@ header .order-button {
   top: -190px;
   cursor: pointer;
   
-  
-  
-  
 }
 
 header .order-button:hover {
-  background-color: FDC913;
+  background-color: #FDC913;
+  color: #292929;
   transform: scale(1.05);
 }
 
 .success-order {
   background-color:#CE2829;
-  /* Kırmızı arka plan */
   color: white;
   padding-top: 0px;
-  /* Beyaz metin */
   height: 100vh;
-  /* Tam ekran yüksekliği */
   display: flex;
-  /* Ortalamak için flex */
   flex-direction: column;
 
-  /* Dikey ortalama */
   align-items: center;  
-  /* Yatay ortalama */
   text-align: center;
 }
 
 .success-order .logo {
   width: 400px;
-  /* Logonun genişliği */
   margin-bottom:12rem;
-  /* Alt boşluk */
   margin-top:50px;
 
 }
@@ -180,7 +167,6 @@ header .order-button:hover {
 .success-order h1 {
   font-size: 4rem;
   font-family: "barlow";
-  /* Başlık boyutu */
   
   
 }
@@ -188,5 +174,4 @@ header .order-button:hover {
 .success-order p {
   font-size: 4rem;
   font-family: "barlow";
-  /* Mesaj boyutu */
 }

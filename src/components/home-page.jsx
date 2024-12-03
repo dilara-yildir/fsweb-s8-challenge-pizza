@@ -21,20 +21,19 @@ function HomePage() {
         <p className="description">KOD ACIKTIRIR</p>
         <p className="description">PIZZA DOYURUR</p>
         <Button
-          color="danger"
           onClick={() => setCurrentPage("order")}
           className="order-button"
         >
           ACIKTIM
         </Button>
       </header>
-      <Menu />
+     {/* <Menu />
       <section className="bg-light py-5" style={{ width: "100%" }}>
         <Cards />
       </section>
       <footer className="bg-dark text-white py-4">
         <Footer />
-      </footer>
+      </footer>*/}
     </div>
   );
 }
