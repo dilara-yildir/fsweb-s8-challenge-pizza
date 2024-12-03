@@ -12,13 +12,13 @@ import {
   CardBody,
   FormText,
 } from "reactstrap";
-import {usePageContext } from "../context";
+import { usePageContext } from "../context";
 import logo from "/assets/Iteration-1-assets/logo.svg";
 
 import axios from "axios";
 
 const OrderForm = () => {
-  const {setCurrentPage,pizza} = usePageContext();
+  const { setCurrentPage, pizza } = usePageContext();
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     size: "",
@@ -73,18 +73,17 @@ const OrderForm = () => {
           : 1,
     }));
   };
- const calculateTotal = () => {
-   
-   const basePrice =
-     formData.size === "Büyük" ? 85 : formData.size === "Orta" ? 70 : 60;
-     if (!formData.size) return 0;
+  const calculateTotal = () => {
+    const basePrice =
+      formData.size === "Büyük" ? 85 : formData.size === "Orta" ? 70 : 60;
+    if (!formData.size) return 0;
 
-   const toppingsCost = formData.toppings.reduce(
-     (total, topping) => total + toppingsPrices[topping],
-     0
-   );
-   return (basePrice + toppingsCost) * formData.quantity;
- };
+    const toppingsCost = formData.toppings.reduce(
+      (total, topping) => total + toppingsPrices[topping],
+      0
+    );
+    return (basePrice + toppingsCost) * formData.quantity;
+  };
 
   const calculateSelectionsTotal = () => {
     // calculateTotal sonucundan sadece ek malzeme toplamını çıkar
@@ -291,12 +290,17 @@ const OrderForm = () => {
                   }}
                 >
                   <Button
-                    style={{ display: "flex" }}
+                    style={{
+                      display: "flex",
+                      borderTopRightRadius: "0px",
+                      borderBottomRightRadius: "0px",
+                      borderTopLeftRadius: "5px",
+                      borderBottomLeftRadius: "5px",
+                    }}
                     color="warning"
                     onClick={() => handleQuantityChange("decrease")}
                   >
                     {"−"}
-                  
                   </Button>
                   <div
                     style={{
@@ -305,13 +309,19 @@ const OrderForm = () => {
                       fontSize: "1.2rem",
                       border: "1px solid #ccc",
                       padding: " 3.5px 15px",
-                      borderRadius: "5px",
+                      borderRadius: "0px",
                     }}
                   >
                     {formData.quantity}
                   </div>
                   <Button
-                    style={{ display: "flex" }}
+                    style={{
+                      display: "flex",
+                      borderTopRightRadius: "5px",
+                      borderBottomRightRadius: "5px",
+                      borderTopLeftRadius: "0px",
+                      borderBottomLeftRadius: "0px",
+                    }}
                     color="warning"
                     onClick={() => handleQuantityChange("increase")}
                   >
@@ -324,12 +334,21 @@ const OrderForm = () => {
               <Card className="p-3">
                 <CardBody>
                   <h5>Sipariş Toplamı</h5>
-                  <p>
-                    Seçimler: {calculateTotal() - calculateSelectionsTotal()}₺
-                  </p>
-                  <p style={{ color: "#CE2829" }}>
-                    Toplam: {calculateTotal().toFixed(2)}₺
-                  </p>
+
+                  <Row>
+                    <Col>Seçimler</Col>
+                    <Col>
+                      {(calculateTotal() - calculateSelectionsTotal()).toFixed(
+                        2
+                      )}
+                      ₺
+                    </Col>
+                  </Row>
+
+                  <Row style={{ color: "#CE2829" }}>
+                    <Col>Toplam</Col>
+                    <Col> {calculateTotal().toFixed(2)}₺</Col>
+                  </Row>
                 </CardBody>
               </Card>
               <Button type="submit" color="warning" block>
