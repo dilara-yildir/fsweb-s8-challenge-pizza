@@ -52,7 +52,7 @@ describe('Pizza Sipariş Testi', () => {
             .type('Dilara Yıldır');
 
         cy.get('textarea[name="specialInstructions"]')
-            .type('Az acı olsun lütfen!');
+            .type('not');
 
 
         // Siparişi tamamla

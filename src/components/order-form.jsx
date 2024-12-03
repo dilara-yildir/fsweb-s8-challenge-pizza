@@ -23,7 +23,7 @@ const OrderForm = ({ navigate, currentPage }) => {
     size: "",
     dough: "",
     toppings: [],
-    specialInstructions: "",
+    specialInstructions: "", 
     quantity: 1,
   });
 
