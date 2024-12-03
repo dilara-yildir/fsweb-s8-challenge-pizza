@@ -1,14 +1,9 @@
 import React from "react";
 import { Button } from "reactstrap";
-import { usePageContext } from "../context.jsx";
 import bannerImage from "/assets/Iteration-1-assets/home-banner.png";
 import logo from "/assets/Iteration-1-assets/logo.svg";
-import Menu from "./sub-component/menu";
-import Cards from "./sub-component/cards";
-import Footer from "./sub-component/footer";
 
-function HomePage() {
-  const { setCurrentPage } = usePageContext(); // Destructuring ile alınmalı
+function HomePage({navigate}) {
 
   return (
     <div>
@@ -21,7 +16,7 @@ function HomePage() {
         <p className="description">KOD ACIKTIRIR</p>
         <p className="description">PIZZA DOYURUR</p>
         <Button
-          onClick={() => setCurrentPage("order")}
+          onClick={() => navigate("order")}
           className="order-button"
         >
           ACIKTIM

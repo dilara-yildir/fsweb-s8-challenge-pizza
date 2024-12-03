@@ -12,14 +12,12 @@ import {
   CardBody,
   FormText,
 } from "reactstrap";
-import { usePageContext } from "../context";
 import { NavLink } from "react-router-dom";
 import logo from "/assets/Iteration-1-assets/logo.svg";
 
 import axios from "axios";
 
-const OrderForm = () => {
-  const { setCurrentPage, pizza } = usePageContext();
+const OrderForm = ({ navigate, currentPage }) => {
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     size: "",
@@ -70,8 +68,8 @@ const OrderForm = () => {
         type === "increase"
           ? prevData.quantity + 1
           : prevData.quantity > 1
-          ? prevData.quantity - 1
-          : 1,
+            ? prevData.quantity - 1
+            : 1,
     }));
   };
   const calculateTotal = () => {
@@ -116,7 +114,7 @@ const OrderForm = () => {
       axios
         .post("https://reqres.in/api/pizza", formData)
         .then(() => {
-          setCurrentPage("success"); 
+          navigate("success");
         })
         .catch((error) => {
           console.error("Sipariş gönderilirken bir hata oluştu:", error);
@@ -135,7 +133,7 @@ const OrderForm = () => {
         }}
       >
         <img src={logo} alt="Teknolojik Yemekler" style={{ width: "280px" }} />
-    
+
         <nav
           style={{
             display: "flex",
@@ -143,32 +141,33 @@ const OrderForm = () => {
             gap: "10px",
             margin: "2px auto",
             paddingTop: "10px",
-            
+
           }}
         >
           <NavLink
-            to="/home-page"
-            style={({ isActive }) =>
-              isActive
+            onClick={() => navigate("home")}
+            style={() =>
+              currentPage == "home"
                 ? {
-                    fontWeight: "bold",
-                    color: "#FAF7F2",
-                    textDecoration: "none",
-                  }
+                  fontWeight: "bold",
+                  color: "#FAF7F2",
+                  textDecoration: "none",
+                }
                 : { color: "#FAF7F2", textDecoration: "none" }
             }
           >
             Anasayfa
           </NavLink>
+          <span style={{ color: "white" }}>{" > "}</span>
           <NavLink
-            to="/order-form"
-            style={({ isActive }) =>
-              isActive
+            onClick={() => navigate("order")}
+            style={() =>
+              currentPage == "order"
                 ? {
-                    fontWeight: "bold",
-                    color: "#FAF7F2",
-                    textDecoration: "none",
-                  }
+                  fontWeight: "bold",
+                  color: "#FAF7F2",
+                  textDecoration: "none",
+                }
                 : { color: "#FAF7F2", textDecoration: "none" }
             }
           >

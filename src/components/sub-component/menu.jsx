@@ -3,7 +3,7 @@ import {
   Navbar,
   Nav,
   NavItem,
-  NavLink,
+
 } from "reactstrap";
 const Menu = () => {
   return (
@@ -18,9 +18,7 @@ const Menu = () => {
           "Gazlı İçecek",
         ].map((item, index) => (
           <NavItem key={index}>
-            <NavLink href="#" className="text-dark">
-              {item}
-            </NavLink>
+            
           </NavItem>
         ))}
       </Nav>
