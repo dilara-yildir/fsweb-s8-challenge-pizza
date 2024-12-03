@@ -295,7 +295,8 @@ const OrderForm = () => {
                     color="warning"
                     onClick={() => handleQuantityChange("decrease")}
                   >
-                    -
+                    {"−"}
+                  
                   </Button>
                   <div
                     style={{
