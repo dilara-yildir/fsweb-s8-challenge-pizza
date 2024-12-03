@@ -5,13 +5,182 @@
   height: 100%;
 }
 
-.logo {
-  
-  width: 100px;
+/* Logo stilleri */
+header {
+
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #FAF7F2;
+
+}
+
+header .logo {
+  width: 300px;
   height: auto;
   margin-bottom: 1rem;
- 
+  position: relative;
+  top: -250px;
+
 }
+
+
+header .description {
+  font-family: "barlow";
+  color: #FAF7F2;
+  font-weight: 400;
+  font-size: 4rem;
+  margin-bottom: 4rem;
+  line-height: 0.3;
+  position: relative;
+  top: -200px;
+
+}
+
+header .order-button {
+  font-family: "barlow";
+  font-weight: bold;
+  background-color: #FDC913;
+  color: #292929;
+  font-size: 1rem;
+  padding: 0.5rem 2.5rem;
+  border: none;
+  border-radius: 100px;
+  position: relative;
+  top: -190px;
+  cursor: pointer;
+}
+
+header .order-button:hover {
+  background-color: #FDC913;
+  color: #292929;
+  transform: scale(1.05);
+}
+
+.success-order {
+  background-color: #CE2829;
+  color: white;
+  padding-top: 0px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.success-order .logo {
+  width: 400px;
+  margin-bottom: 12rem;
+  margin-top: 50px;
+}
+
+.success-order h1 {
+  font-size: 4rem;
+  font-family: "barlow";
+
+}
+
+.success-order p {
+  font-size: 4rem;
+  font-family: "barlow";
+}
+
+
+/* order-form*/
+
+.header {
+ background-color: #CE2829;
+ padding: 50px 0;
+text-align: center;
+}
+.header nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 2px auto;
+  padding-top: 10px;
+}
+
+
+.pizza-title {
+  font-family: barlow;
+  font-weight: bold;
+  color: #292929;
+}
+
+.pizza-price {
+  font-family: barlow;
+  font-weight: bold;
+  color:#292929;
+}
+
+.pizza-description {
+  line-height: 1.6;
+  font-size: 1rem;
+  text-align: left;
+  color: #292929;
+}
+
+.pizza-rating {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color:#292929;
+}
+
+
+.radio-group input[type="radio"] {
+    margin-bottom: 20px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-bottom: 10px;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100px;
+}
+
+.quantity-button {
+  display: flex;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.quantity-button-2 {
+  display: flex;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+
+
+
+
+
+
+.card {
+  padding: 2em;
+}
+
+.cardBody h5 {
+  font-weight: bold;
+}
+
+
 
 
 @keyframes logo-spin {
@@ -28,154 +197,4 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-
-.card {
-  padding: 2em;
-}
-
-.cardBody h5 {
-  font-weight: bold;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-header {
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-}
-
-header .content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-}
-
-body,
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  font-family: "barlow";
-}
-
- h5 {
-  font-family: "barlow";
-  font-weight: "bold";
-  color: "#333";
-}
-
-/* Logo stilleri */
-header {
-  background-size: cover;
-  background-position: center;
-  height: 100h;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  
-}
-
-header .logo {
-  width: 300px;
-  height: auto;
-  margin-bottom: 1rem;
-  position: relative;
-  top: -250px;
-  
-  
-
-}
-
-header .tagline {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin: 1rem 0;
-  font-weight: lighter;
-  
-}
-
-header .description {
-  font-family:"barlow" ;
-  font-weight: lighter;
-  color: #FAF7F2;
-  font-weight: 400;
-  font-size: 4rem;
-  margin-bottom: 4rem;
-  line-height: 0.3;
-  position: relative;
-  top: -200px;
-  
-}
-
-
-header .order-button {
-  font-family: "barlow";
-  font-weight: bold;
-  background-color: #FDC913;
-  color: #292929;
-  font-size: 1rem;
-  padding: 0.5rem 2.5rem;
-  border: none;
-  border-radius: 100px;
-  position: relative;
-  top: -190px;
-  cursor: pointer;
-  
-}
-
-header .order-button:hover {
-  background-color: #FDC913;
-  color: #292929;
-  transform: scale(1.05);
-}
-
-.success-order {
-  background-color:#CE2829;
-  color: white;
-  padding-top: 0px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;  
-  text-align: center;
-}
-
-.success-order .logo {
-  width: 400px;
-  margin-bottom:12rem;
-  margin-top:50px;
-
-}
-
-.success-order h1 {
-  font-size: 4rem;
-  font-family: "barlow";
-  
-  
-}
-
-.success-order p {
-  font-size: 4rem;
-  font-family: "barlow";
 }

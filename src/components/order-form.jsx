@@ -23,7 +23,7 @@ const OrderForm = ({ navigate, currentPage }) => {
     size: "",
     dough: "",
     toppings: [],
-    specialInstructions: "", 
+    specialInstructions: "",
     quantity: 1,
   });
 
@@ -68,8 +68,8 @@ const OrderForm = ({ navigate, currentPage }) => {
         type === "increase"
           ? prevData.quantity + 1
           : prevData.quantity > 1
-            ? prevData.quantity - 1
-            : 1,
+          ? prevData.quantity - 1
+          : 1,
     }));
   };
   const calculateTotal = () => {
@@ -125,34 +125,19 @@ const OrderForm = ({ navigate, currentPage }) => {
   return (
     <>
       {/* Header Bölümü */}
-      <div
-        style={{
-          backgroundColor: "#CE2829",
-          padding: "50px 0",
-          textAlign: "center",
-        }}
-      >
+      <div className="header">
         <img src={logo} alt="Teknolojik Yemekler" style={{ width: "280px" }} />
 
-        <nav
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "10px",
-            margin: "2px auto",
-            paddingTop: "10px",
-
-          }}
-        >
+        <nav>
           <NavLink
             onClick={() => navigate("home")}
             style={() =>
               currentPage == "home"
                 ? {
-                  fontWeight: "bold",
-                  color: "#FAF7F2",
-                  textDecoration: "none",
-                }
+                    fontWeight: "bold",
+                    color: "#FAF7F2",
+                    textDecoration: "none",
+                  }
                 : { color: "#FAF7F2", textDecoration: "none" }
             }
           >
@@ -164,10 +149,10 @@ const OrderForm = ({ navigate, currentPage }) => {
             style={() =>
               currentPage == "order"
                 ? {
-                  fontWeight: "bold",
-                  color: "#FAF7F2",
-                  textDecoration: "none",
-                }
+                    fontWeight: "bold",
+                    color: "#FAF7F2",
+                    textDecoration: "none",
+                  }
                 : { color: "#FAF7F2", textDecoration: "none" }
             }
           >
@@ -177,36 +162,20 @@ const OrderForm = ({ navigate, currentPage }) => {
       </div>
 
       <Container
+        className="container"
         style={{ maxWidth: "540px", margin: "35px auto", padding: "5px 5px" }}
       >
         {/* Pizza Başlık ve Açıklama */}
         <Row className="mb-4">
           <Col>
-            <h5
-              style={{
-                fontFamily: "barlow",
-                fontWeight: "bold",
-                color: "#292929",
-              }}
-            >
-              Position Absolute Acı Pizza
-            </h5>
-            <h4
-              style={{
-                fontFamily: "barlow",
-                fontWeight: "bold",
-                color: "#333",
-              }}
-            >
-              85.50₺
-            </h4>
-            <div style={{ display: "flex", justifyContent: "right" }}>
+            <h5 className="pizza-title">Position Absolute Acı Pizza</h5>
+            <h4 className="pizza-price">85.50₺</h4>
+            <div className="pizza-rating">
               <span>4.9</span>
-
               <span>(200)</span>
             </div>
             <p
-              className="text-muted mt-3"
+              className="pizza-description"
               style={{ lineHeight: "1.6", fontSize: "1rem", textAlign: "left" }}
             >
               Frontend Dev olarak hala position:absolute kullanıyorsan bu çok
@@ -228,9 +197,8 @@ const OrderForm = ({ navigate, currentPage }) => {
                   <Label for="size">Boyut Seç *</Label>
                   {["Küçük", "Orta", "Büyük"].map((size, index) => (
                     <Col sm="4" key={index}>
-                      <Label key={index} check style={{ marginRight: "20px" }}>
+                      <Label key={index} check className="radio-group">
                         <Input
-                          style={{ marginBottom: "30px" }}
                           type="radio"
                           name="size"
                           value={size}
@@ -250,6 +218,7 @@ const OrderForm = ({ navigate, currentPage }) => {
                     type="select"
                     name="dough"
                     id="dough"
+                    className="select-group"
                     value={formData.dough}
                     onChange={handleChange}
                   >
@@ -272,9 +241,8 @@ const OrderForm = ({ navigate, currentPage }) => {
             <Row>
               {Object.keys(toppingsPrices).map((topping, index) => (
                 <Col sm="4" key={index}>
-                  <Label check>
+                  <Label check className="checkbox-group">
                     <Input
-                      style={{ marginBottom: "15px" }}
                       type="checkbox"
                       name="toppings"
                       value={topping}
@@ -322,6 +290,7 @@ const OrderForm = ({ navigate, currentPage }) => {
             <Col sm="6">
               <FormGroup>
                 <div
+                  className="quantity-container"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -330,6 +299,7 @@ const OrderForm = ({ navigate, currentPage }) => {
                   }}
                 >
                   <Button
+                    className="quantity-button"
                     style={{
                       display: "flex",
                       borderTopRightRadius: "0px",
@@ -355,6 +325,7 @@ const OrderForm = ({ navigate, currentPage }) => {
                     {formData.quantity}
                   </div>
                   <Button
+                    className="quantity-button-2"
                     style={{
                       display: "flex",
                       borderTopRightRadius: "5px",
