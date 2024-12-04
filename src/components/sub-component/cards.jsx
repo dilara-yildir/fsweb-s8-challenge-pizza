@@ -1,5 +1,4 @@
 import React from "react";
-import { usePageContext } from "../../context";
 import {
   Button,
   Container,
@@ -10,9 +9,8 @@ import {
   CardTitle,
   CardText,
 } from "reactstrap";
-const Cards = () => {
-  const { setPizza } = usePageContext();
-  return (
+const Cards = ({setPizza}) =>{
+    return (
     <Container>
       <Row>
         {/* Kartlar */}
@@ -52,7 +50,7 @@ const Cards = () => {
           </Col>
         ))}
       </Row>
-    </Container>
+    </Container> 
   );
 };
 

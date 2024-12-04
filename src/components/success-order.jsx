@@ -36,6 +36,8 @@ const SuccessOrder = () => {
           Toplam <span className="total">110.50₺</span>
         </p>
       </div>
+      <footer className="bg-dark text-white py-4">
+      </footer>
     </div>
   );
 };
