@@ -5,6 +5,13 @@
   height: 100%;
 }
 
+body {
+  margin: 0;
+  background-color: white;
+  color:  #FAF7F2;
+  text-align: center;
+}
+
 /* Logo stilleri */
 header {
 
@@ -18,7 +25,6 @@ header {
   justify-content: center;
   align-items: center;
   color: #FAF7F2;
-
 }
 
 header .logo {
@@ -27,9 +33,7 @@ header .logo {
   margin-bottom: 1rem;
   position: relative;
   top: -250px;
-
 }
-
 
 header .description {
   font-family: "barlow";
@@ -40,7 +44,6 @@ header .description {
   line-height: 0.3;
   position: relative;
   top: -200px;
-
 }
 
 header .order-button {
@@ -74,23 +77,16 @@ header .order-button:hover {
   text-align: center;
 }
 
-.success-order .logo {
-  width: 400px;
-  margin-bottom: 12rem;
-  margin-top: 50px;
-}
 
 .success-order h1 {
   font-size: 4rem;
   font-family: "barlow";
-
 }
 
 .success-order p {
   font-size: 4rem;
   font-family: "barlow";
 }
-
 
 /* order-form*/
 
@@ -106,7 +102,6 @@ text-align: center;
   margin: 2px auto;
   padding-top: 10px;
 }
-
 
 .pizza-title {
   font-family: barlow;
@@ -133,7 +128,6 @@ text-align: center;
   font-size: 1rem;
   color:#292929;
 }
-
 
 .radio-group input[type="radio"] {
     margin-bottom: 20px;
@@ -167,11 +161,106 @@ text-align: center;
 }
 
 
+/*succes-order*/
+.success-order .logo {
+  width: 400px;
+  margin-bottom: 4rem;
+  margin-top: 50px;
+}
+ .main-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
 
+ .sub-title {
+  font-family: satisfy;
+  font-size: 1.5rem;
+  margin-top: 10px;
+  font-style: italic;
+  color: #ffcc00;
+}
+ 
 
+ .order-container {
+   margin: 50px auto;
+   max-width: 500px;
+   padding: 20px;
+ }
 
+ .order-title {
+   font-size: 2rem;
+   margin-bottom: 10px;
+   letter-spacing: 2px;
+ }
 
+ .pizza-info {
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+ }
+.pizza-info h5{
+  font-family: barlow;
+}
+ .pizza-info p {
+   font-family: barlow;
+   padding: 20px;
+   margin-top: 20px;
+   font-size: 16px;
+   line-height: 1.6;
+   margin: auto;
+   max-width: 300px;
 
+ }
+
+ .highlight {
+   font-weight: bold;
+ }
+
+.order-total  { 
+  font-family: barlow;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  border: 1px solid #FAF7F2;
+  border-radius: 5px;
+  width: 400px;
+  padding: 20px;
+  margin: 20px;
+  
+  
+}
+
+.order-total p {
+  display: flex;
+  font-family: barlow;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 10px;
+  max-width: 300px;
+}
+
+.order-total h5 {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-family: barlow;
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: auto;
+  max-width: 300px;
+}
+.total {
+  font-family: barlow;
+  display: flex;
+  justify-content: right;
+  font-size: 16px;
+  margin: auto;
+  max-width: 300px;
+  ;
+}
 .card {
   padding: 2em;
 }
