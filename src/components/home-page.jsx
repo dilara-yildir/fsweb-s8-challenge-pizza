@@ -9,6 +9,8 @@ import Footer from "./sub-component/footer.jsx";
 
 function HomePage({navigate}) {
   const [pizza, setPizza]= useState();
+  const [menu, setMenu] = useState();
+
 
   return (
     <div>
@@ -25,7 +27,7 @@ function HomePage({navigate}) {
         </Button>
       </header>
     
-       <Menu />
+       <Menu setMenu={setMenu}/>
       <section className="bg-light py-5" style={{ width: "100%" }}>
         <Cards  setPizza={setPizza}/>
       </section>

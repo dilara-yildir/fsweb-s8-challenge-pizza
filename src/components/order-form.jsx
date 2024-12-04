@@ -17,7 +17,7 @@ import logo from "/assets/Iteration-1-assets/logo.svg";
 
 import axios from "axios";
 
-const OrderForm = ({ navigate, currentPage }) => {
+const OrderForm = ({ navigate, currentPage, pizza, selectPizza }) => {
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     size: "",
@@ -26,7 +26,6 @@ const OrderForm = ({ navigate, currentPage }) => {
     specialInstructions: "",
     quantity: 1,
   });
-
   const toppingsPrices = {
     Pepperoni: 5,
     Domates: 5,
@@ -114,6 +113,7 @@ const OrderForm = ({ navigate, currentPage }) => {
       axios
         .post("https://reqres.in/api/pizza", formData)
         .then(() => {
+          pizza(formData);
           navigate("success");
         })
         .catch((error) => {

@@ -42,7 +42,7 @@ const Cards = ({setPizza}) =>{
                 <CardText>{card.description}</CardText>
                 <Button onClick={
                   () => {
-                    setPizza({ title: card.title, description: card.description });
+                    setPizza({ name: card.name, description: card.description });
                   }
                 } color={card.buttonColor}>Sipariş Ver</Button>
               </CardBody>

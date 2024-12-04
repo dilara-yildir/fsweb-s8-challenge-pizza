@@ -1,7 +1,14 @@
 import React from "react";
 import logo from "/assets/Iteration-1-assets/logo.svg";
 
-const SuccessOrder = () => {
+const SuccessOrder = (pizza) => {
+  const sizes = [
+    { name: "Küçük", key: "S" },
+    { name: "Orta", key: "M" },
+    { name: "Büyük", key: "L" },
+  ];
+
+  
   return (
     <div className="success-order">
       <img src={logo} alt="Teknolojik Yemekler" className="logo" />
@@ -36,8 +43,7 @@ const SuccessOrder = () => {
           Toplam <span className="total">110.50₺</span>
         </p>
       </div>
-      <footer className="bg-dark text-white py-4">
-      </footer>
+      <footer className="bg-dark text-white py-4"></footer>
     </div>
   );
 };

@@ -129,13 +129,9 @@ text-align: center;
   color:#292929;
 }
 
-.radio-group input[type="radio"] {
-    margin-bottom: 20px;
-}
 
-.checkbox-group input[type="checkbox"] {
-    margin-bottom: 10px;
-}
+
+
 
 .quantity-container {
   display: flex;
@@ -322,10 +318,66 @@ text-align: center;
   background-color: #e63e00;
 }
 
+.menu-text{
+  display: flex;
+  font-size: 15px;
+  margin: 20px;  
+}
+
+.logo-footer{
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-icon{
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;/
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.footer-title{
+  margin-top: 50px;
+  font-family: barlow;
+  font-size: 20px;
+  margin-left: 50px;
+
+}
+
+.social-media{
+  margin-top: 110px;
+  font-family: barlow;
+  font-size: 20px;
+}
+
+.media-group{
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 100px;
+  gap: 25px;
+}
 
 
+.bg-secondary{
+  display: flex;
+  height: 60px;
+  width: 60px;
+  
+}
 
-
+.list-unstyled  {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 10px;
+  padding: 10px;
+  
+}
 
 
 
