@@ -72,8 +72,8 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
         type === "increase"
           ? prevData.quantity + 1
           : prevData.quantity > 1
-            ? prevData.quantity - 1
-            : 1,
+          ? prevData.quantity - 1
+          : 1,
     }));
   };
   const calculateTotal = () => {
@@ -99,7 +99,7 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
     );
 
     // Seçimlerin toplamı: Total - toppings
-    return total - toppingsCost;
+    return total - toppingsCost * 2;
   };
 
   const validate = () => {
@@ -108,6 +108,7 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
     if (formData.dough === "") newErrors.dough = "Hamur Seçimi Yapınız";
     if (formData.toppings.length < 4)
       newErrors.toppings = "En az dört malzeme seçiniz";
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };

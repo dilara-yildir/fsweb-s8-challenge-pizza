@@ -15,34 +15,34 @@ const Cards = ({ navigate }) => {
   return (
     <Container>
       <Row
-        className="gy-4 mx-auto" // mx-auto ile yatayda merkezleme
+        className="gy-4 mx-auto"
         style={{
-          width: "70%", // Genişliği %70 yapar
+          width: "70%", 
         }}
       >
-        {/* Sol Tarafta Büyük Kart */}
+       
         <Col md="6">
           <Card className="text-white h-100" style={{ position: "relative" }}>
-            {/* Görsel (arka plan) */}
+            
             <CardImg
               src="Assets/Iteration-2-aseets/cta/kart-1.png"
               alt="Pizza"
               style={{
                 objectFit: "cover",
                 width: "100%",
-                height: "100%", // Kart yüksekliği %100 yapıldı
+                height: "100%", 
               }}
             />
-            {/* İçerik (görselin üstünde) */}
+            
             <CardBody
               style={{
-                position: "absolute", // İçeriği görselin üstüne yerleştirir
+                position: "absolute",
                 top: 0,
                 left: 0,
                 right: 0,
                 bottom: 0,
                 flexDirection: "column",
-                borderRadius: "10px", // Yuvarlatılmış köşeler
+                borderRadius: "10px",
               }}
             >
               <CardTitle tag="h3" className="mb-3">
@@ -61,7 +61,7 @@ const Cards = ({ navigate }) => {
           </Card>
         </Col>
 
-        {/* Sağ Tarafta Üst Üste İki Kart */}
+       
         <Col md="6">
           <Row className="gy-4">
             {[
@@ -86,17 +86,15 @@ const Cards = ({ navigate }) => {
                     overflow: "hidden",
                   }}
                 >
-                  {/* Görsel */}
                   <CardImg
                     src={card.image}
                     alt={card.title}
                     style={{
                       objectFit: "cover",
                       width: "100%",
-                      height: "185px", // Görseller için yükseklik ayarı
+                      height: "185px",
                     }}
                   />
-                  {/* Kart İçeriği (CardBody) */}
                   <CardBody
                     style={{
                       position: "absolute",
