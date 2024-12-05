@@ -100,7 +100,7 @@ const PizzaCard = () => {
 
       {/* Menü Kartları */}
       <Row className="justify-content-center">
-        <Col md="8"> {/* Ana genişlik burada daraltıldı */}
+        <Col md="8"> 
           <Row className="gy-4">
             {menuItems
               .filter((item) => item.category === activeCategory)
@@ -126,7 +126,7 @@ const PizzaCard = () => {
                       >
                         {/* Puan ve Yorumlar */}
                         <div className="d-flex align-items-center">
-                          <span style={{ marginRight: "5px" }}>{item.rating} ⭐</span>
+                          <span style={{ marginRight: "5px" }}>{item.rating} </span>
                           <span className="text-muted" style={{ marginLeft: "5px" }}>
                             ({item.reviews})
                           </span>

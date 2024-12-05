@@ -169,52 +169,179 @@ text-align: center;
   color:#292929;
 }
 
-/* Checkbox kapsayıcı */
-.checkbox-group {
+
+
+
+input[type="checkbox"] {
+  display: none;
+  appearance: none;
+}
+
+input[type="checkbox"]+label {
   display: flex;
-  content: "+";
   align-items: center;
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 10px;
+  gap: 5px;
+  cursor: pointer;
   font-size: 16px;
+  font-family: Barlow, sans-serif;
   color: #333;
-  /* Metin rengi */
-}
-
-/* Görünmez checkbox */
-.checkbox-group input[type="checkbox"] {
-  height: 0;
-  width: 0;
-}
-
-/* Kutunun varsayılan görünümü */
-.checkbox-group::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ccc;
-  /* Kenar rengi */
+  border: 2px solid #FAF7F2;
   border-radius: 4px;
-  /* Kenar yuvarlatma */
-  background: #f5f5f5;
-  /* Arkaplan rengi */
-  box-sizing: border-box;
+  padding: 10px 20px;
+  background-color: #fff;
+  transition: all 0.3s ease;
 }
 
-/* İşaretlenmiş kutu */
-.checkbox-group input[type="checkbox"] {
-  background-color: #ffd700;
-  border-color: #ffcc00;
+input[type="checkbox"]:checked+label::before {
+  content: "✓";
+  color: #2f2d26;
+  background-color: #FDC913;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+input[type="checkbox"]+label::before {
+  content: "";
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #FAF7F2;
+  margin-right: 10px;
+  display: flex;
+  flex-shrink: 0;
 }
 
 
+input[type="checkbox"] {
+  display: none;
+  appearance: none;
+}
+
+input[type="checkbox"]+label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: Barlow, sans-serif;
+  color: #333;
+  border: 2px solid #FAF7F2;
+  border-radius: 4px;
+  padding: 10px 20px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+input[type="checkbox"]:checked+label::before {
+  content: "✓";
+  color: #2f2d26;
+  background-color: #FDC913;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+input[type="checkbox"]+label::before {
+  content: "";
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #FAF7F2;
+  margin-right: 10px;
+  display: flex;
+  flex-shrink: 0;
+}
+
+/*------*/
+
+input[type="radio"] {
+  display: none;
+  appearance: none;
+}
+
+input[type="radio"]+label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: Barlow, sans-serif;
+  color: #333;
+  padding: 10px 20px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+input[type="cradio"]:checked+label::before {
+  content: "✓";
+  color: #2f2d26;
+  background-color: #FDC913;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+input[type="radio"]+label::before {
+  content: "";
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #ccc;
+  background-color: #FAF7F2;
+  margin-right: 10px;
+  display: flex;
+  flex-shrink: 0;
+}
 
 
+input[type="radio"] {
+  display: none;
+  appearance: none;
+}
+
+input[type="radio"]+label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: Barlow, sans-serif;
+  color: #333;
+  padding: 10px 20px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+input[type="radio"]:checked+label::before {
+  content: "✓";
+  color: #2f2d26;
+  background-color: #FDC913;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+input[type="radio"]+label::before {
+  content: "";
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #FAF7F2;
+  margin-right: 10px;
+  display: flex;
+  flex-shrink: 0;
+}
 
 
 
@@ -477,7 +604,6 @@ text-align: center;
   background-image: url("../Assets/Iteration-2-aseets/cta/kart-1.png");
 
 }
-
 
 
 

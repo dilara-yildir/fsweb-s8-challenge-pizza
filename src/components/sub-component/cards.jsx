@@ -69,13 +69,13 @@ const Cards = ({ navigate }) => {
                 title: "Hackathlon Burger Menü",
                 description: "Tam Kapsamlı Lezzet!",
                 buttonColor: "warning",
-                image: "Assets/Iteration-2-aseets/cta/kart-2.png", // Resim yolu
+                image: "Assets/Iteration-2-aseets/cta/kart-2.png", 
               },
               {
                 title: "Çooook Hızlı Kurye",
                 description: "Lezzet Hızlı ve Güvenli!",
                 buttonColor: "danger",
-                image: "Assets/Iteration-2-aseets/cta/kart-3.png", // Resim yolu
+                image: "Assets/Iteration-2-aseets/cta/kart-3.png", 
               },
             ].map((card, index) => (
               <Col md="12" key={index}>

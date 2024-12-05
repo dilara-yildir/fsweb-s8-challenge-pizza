@@ -150,17 +150,16 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
       <div className="header-bottom">
         <img src={formBanner} />
         <div className="header-nav">
-
-          <nav >
+          <nav>
             <NavLink
               onClick={() => navigate("home")}
               style={() =>
                 currentPage == "home"
                   ? {
-                    fontWeight: "bold",
-                    color: "black",
-                    textDecoration: "none",
-                  }
+                      fontWeight: "bold",
+                      color: "black",
+                      textDecoration: "none",
+                    }
                   : { color: "black", textDecoration: "none" }
               }
             >
@@ -172,10 +171,10 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
               style={() =>
                 currentPage == "order"
                   ? {
-                    fontWeight: "bold",
-                    color: "black",
-                    textDecoration: "none",
-                  }
+                      fontWeight: "bold",
+                      color: "black",
+                      textDecoration: "none",
+                    }
                   : { color: "black", textDecoration: "none" }
               }
             >
@@ -185,7 +184,9 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
 
           <Row className="mb-4">
             <Col>
-              <h5 for="title" name="title" className="pizza-title">Position Absolute Acı Pizza</h5>
+              <h5 for="title" name="title" className="pizza-title">
+                Position Absolute Acı Pizza
+              </h5>
               <h4 className="pizza-price">85.50₺</h4>
               <div className="pizza-rating">
                 <span>4.9</span>
@@ -193,22 +194,23 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
               </div>
               <p
                 className="pizza-description"
-                style={{ lineHeight: "1.6", fontSize: "1rem", textAlign: "left" }}
+                style={{
+                  lineHeight: "1.6",
+                  fontSize: "1rem",
+                  textAlign: "left",
+                }}
               >
                 Frontend Dev olarak hala position:absolute kullanıyorsan bu çok
                 acı pizza tam sana göre. Pizza, domates, peynir ve genellikle
-                çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak
-                odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle
-                yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan
-                İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen
-                pizzetta denir.
+                çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel
+                olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen,
+                genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan
+                oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya
+                bazen pizzetta denir.
               </p>
             </Col>
           </Row>
-
         </div>
-
-
       </div>
 
       <Container
@@ -219,7 +221,9 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
         <Form onSubmit={handleSubmit}>
           <FormGroup>
             <FormGroup hidden>
-              <h5 for="title" name="title" className="pizza-title">Position Absolute Acı Pizza</h5>
+              <h5 for="title" name="title" className="pizza-title">
+                Position Absolute Acı Pizza
+              </h5>
             </FormGroup>
 
             <div>
@@ -228,15 +232,16 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
                   <Label for="size">Boyut Seç *</Label>
                   {["S", "M", "L"].map((size, index) => (
                     <Col sm="4" key={index}>
-                      <Label key={index} check className="radio-group">
+                      <div className="radio-container">
                         <Input
                           type="radio"
+                          id={`size-${index}`}
                           name="size"
                           value={size}
                           onChange={handleChange}
-                        />{" "}
-                        {size}
-                      </Label>
+                        />
+                        <label htmlFor={`size-${index}`}>{size}</label>
+                      </div>
                     </Col>
                   ))}
                   {errors.size && (
@@ -272,9 +277,10 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
             <Row>
               {Object.keys(toppingsPrices).map((topping, index) => (
                 <Col sm="4" key={index}>
-                  <Label check className="checkbox-group">
+                  <div className="checkbox-group">
                     <Input
                       type="checkbox"
+                      id={`topping-${index}`}
                       name="toppings"
                       value={topping}
                       onChange={handleChange}
@@ -282,9 +288,9 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
                         formData.toppings.length >= 10 &&
                         !formData.toppings.includes(topping)
                       }
-                    />{" "}
-                    {topping}
-                  </Label>
+                    />
+                    <label htmlFor={`topping-${index}`}>{topping}</label>
+                  </div>
                 </Col>
               ))}
               {errors.toppings && (
@@ -389,7 +395,10 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
 
                   <Row style={{ color: "#CE2829" }}>
                     <Col>Toplam</Col>
-                    <Col name="total" for="total"> {calculateTotal().toFixed(2)}₺</Col>
+                    <Col name="total" for="total">
+                      {" "}
+                      {calculateTotal().toFixed(2)}₺
+                    </Col>
                   </Row>
                 </CardBody>
               </Card>
@@ -399,8 +408,6 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
             </Col>
           </Row>
         </Form>
-
-
       </Container>
       <footer className="bg-dark text-white py-4">
         <Footer />

@@ -10,8 +10,7 @@ describe('Pizza Sipariş Testi', () => {
             .click();
 
         // Boyut seçimi 
-        cy.get('input[name="size"][value="Büyük"]').check();
-
+        cy.get('input[name="pizzaSize"]').check();
 
         // Hamur seçimi 
         cy.get('select[name="dough"]').select('İnce');
