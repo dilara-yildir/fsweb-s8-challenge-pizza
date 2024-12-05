@@ -8,6 +8,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const [pizza, setPizza] = useState();
   const [selectPizza, setSelectPizza] = useState();
+  const [order, setOrder] = useState();
   function navigate(data) {
     setCurrentPage(data);
   }
@@ -23,9 +24,10 @@ function App() {
           currentPage={currentPage}
           pizza={setPizza}
           selectPizza={selectPizza}
+          setOrder={setOrder}
         />
       )}
-      {currentPage === "success" && <SuccessOrder pizza={pizza} />}
+      {currentPage === "success" && <SuccessOrder pizza={order} />}
     </>
   );
 }

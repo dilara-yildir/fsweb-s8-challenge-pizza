@@ -14,10 +14,12 @@ import {
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import logo from "/assets/Iteration-1-assets/logo.svg";
+import formBanner from "/assets/Iteration-2-aseets/pictures/form-banner.png";
 
 import axios from "axios";
+import Footer from "./sub-component/footer";
 
-const OrderForm = ({ navigate, currentPage, pizza, selectPizza }) => {
+const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     size: "",
@@ -25,6 +27,9 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza }) => {
     toppings: [],
     specialInstructions: "",
     quantity: 1,
+    title: "",
+    chooses: "",
+    total: "",
   });
   const toppingsPrices = {
     Pepperoni: 5,
@@ -67,8 +72,8 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza }) => {
         type === "increase"
           ? prevData.quantity + 1
           : prevData.quantity > 1
-          ? prevData.quantity - 1
-          : 1,
+            ? prevData.quantity - 1
+            : 1,
     }));
   };
   const calculateTotal = () => {
@@ -109,11 +114,25 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form = e.target;
+
+    // Sabit alanları al
+    const title = form.querySelector('[name="title"]').textContent;
+    const chooses = form.querySelector('[name="chooses"]').textContent;
+    const total = form.querySelector('[name="total"]').textContent;
+
+    const prevdata = formData;
+    prevdata.title = title;
+    prevdata.chooses = chooses;
+    prevdata.total = total;
+    setFormData(prevdata);
+    setOrder(prevdata);
+
     if (validate()) {
       axios
-        .post("https://reqres.in/api/pizza", formData)
-        .then(() => {
-          pizza(formData);
+        .post("https://reqres.in/api/pizza", prevdata)
+        .then((e) => {
+          pizza(prevdata);
           navigate("success");
         })
         .catch((error) => {
@@ -127,38 +146,69 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza }) => {
       {/* Header Bölümü */}
       <div className="header">
         <img src={logo} alt="Teknolojik Yemekler" style={{ width: "280px" }} />
+      </div>
+      <div className="header-bottom">
+        <img src={formBanner} />
+        <div className="header-nav">
 
-        <nav>
-          <NavLink
-            onClick={() => navigate("home")}
-            style={() =>
-              currentPage == "home"
-                ? {
+          <nav >
+            <NavLink
+              onClick={() => navigate("home")}
+              style={() =>
+                currentPage == "home"
+                  ? {
                     fontWeight: "bold",
-                    color: "#FAF7F2",
+                    color: "black",
                     textDecoration: "none",
                   }
-                : { color: "#FAF7F2", textDecoration: "none" }
-            }
-          >
-            Anasayfa
-          </NavLink>
-          <span style={{ color: "white" }}>{" > "}</span>
-          <NavLink
-            onClick={() => navigate("order")}
-            style={() =>
-              currentPage == "order"
-                ? {
+                  : { color: "black", textDecoration: "none" }
+              }
+            >
+              Anasayfa
+            </NavLink>
+            <span style={{ color: "white" }}>{" > "}</span>
+            <NavLink
+              onClick={() => navigate("order")}
+              style={() =>
+                currentPage == "order"
+                  ? {
                     fontWeight: "bold",
-                    color: "#FAF7F2",
+                    color: "black",
                     textDecoration: "none",
                   }
-                : { color: "#FAF7F2", textDecoration: "none" }
-            }
-          >
-            Sipariş Oluştur
-          </NavLink>
-        </nav>
+                  : { color: "black", textDecoration: "none" }
+              }
+            >
+              Sipariş Oluştur
+            </NavLink>
+          </nav>
+
+          <Row className="mb-4">
+            <Col>
+              <h5 for="title" name="title" className="pizza-title">Position Absolute Acı Pizza</h5>
+              <h4 className="pizza-price">85.50₺</h4>
+              <div className="pizza-rating">
+                <span>4.9</span>
+                <span>(200)</span>
+              </div>
+              <p
+                className="pizza-description"
+                style={{ lineHeight: "1.6", fontSize: "1rem", textAlign: "left" }}
+              >
+                Frontend Dev olarak hala position:absolute kullanıyorsan bu çok
+                acı pizza tam sana göre. Pizza, domates, peynir ve genellikle
+                çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak
+                odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle
+                yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan
+                İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen
+                pizzetta denir.
+              </p>
+            </Col>
+          </Row>
+
+        </div>
+
+
       </div>
 
       <Container
@@ -166,36 +216,17 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza }) => {
         style={{ maxWidth: "540px", margin: "35px auto", padding: "5px 5px" }}
       >
         {/* Pizza Başlık ve Açıklama */}
-        <Row className="mb-4">
-          <Col>
-            <h5 className="pizza-title">Position Absolute Acı Pizza</h5>
-            <h4 className="pizza-price">85.50₺</h4>
-            <div className="pizza-rating">
-              <span>4.9</span>
-              <span>(200)</span>
-            </div>
-            <p
-              className="pizza-description"
-              style={{ lineHeight: "1.6", fontSize: "1rem", textAlign: "left" }}
-            >
-              Frontend Dev olarak hala position:absolute kullanıyorsan bu çok
-              acı pizza tam sana göre. Pizza, domates, peynir ve genellikle
-              çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak
-              odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle
-              yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan
-              İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen
-              pizzetta denir.
-            </p>
-          </Col>
-        </Row>
-
         <Form onSubmit={handleSubmit}>
           <FormGroup>
+            <FormGroup hidden>
+              <h5 for="title" name="title" className="pizza-title">Position Absolute Acı Pizza</h5>
+            </FormGroup>
+
             <div>
               <Row>
                 <Col sm="6">
                   <Label for="size">Boyut Seç *</Label>
-                  {["Küçük", "Orta", "Büyük"].map((size, index) => (
+                  {["S", "M", "L"].map((size, index) => (
                     <Col sm="4" key={index}>
                       <Label key={index} check className="radio-group">
                         <Input
@@ -348,7 +379,7 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza }) => {
 
                   <Row style={{ color: "#292929" }}>
                     <Col>Seçimler</Col>
-                    <Col>
+                    <Col name="chooses" for="chooses">
                       {(calculateTotal() - calculateSelectionsTotal()).toFixed(
                         2
                       )}
@@ -358,7 +389,7 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza }) => {
 
                   <Row style={{ color: "#CE2829" }}>
                     <Col>Toplam</Col>
-                    <Col> {calculateTotal().toFixed(2)}₺</Col>
+                    <Col name="total" for="total"> {calculateTotal().toFixed(2)}₺</Col>
                   </Row>
                 </CardBody>
               </Card>
@@ -368,7 +399,12 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza }) => {
             </Col>
           </Row>
         </Form>
+
+
       </Container>
+      <footer className="bg-dark text-white py-4">
+        <Footer />
+      </footer>
     </>
   );
 };

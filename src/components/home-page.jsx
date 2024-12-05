@@ -5,6 +5,7 @@ import logo from "/assets/Iteration-1-assets/logo.svg";
 import Menu from "./sub-component/menu.jsx";
 import Cards from "./sub-component/cards.jsx";
 import Footer from "./sub-component/footer.jsx";
+import PizzaCards from "./sub-component/pizza-card.jsx";
 
 
 function HomePage({navigate}) {
@@ -29,7 +30,8 @@ function HomePage({navigate}) {
     
        <Menu setMenu={setMenu}/>
       <section className="bg-light py-5" style={{ width: "100%" }}>
-        <Cards  setPizza={setPizza}/>
+        <Cards  navigate={navigate}/>
+        <PizzaCards setPizza={setPizza}/>
       </section>
       <footer className="bg-dark text-white py-4">
         <Footer />

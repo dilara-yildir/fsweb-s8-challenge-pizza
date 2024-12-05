@@ -5,6 +5,16 @@ import EmailIcon from "/Assets/Iteration-2-aseets/footer/icons/icon-2.png";
 import PhoneIcon from "/Assets/Iteration-2-aseets/footer/icons/icon-3.png";
 import logo from "/Assets/Iteration-2-aseets/footer/logo-footer.svg";
 
+const li = [
+  { image: "/Assets/Iteration-2-aseets/footer/insta/li-0.png" },  
+  { image: "/Assets/Iteration-2-aseets/footer/insta/li-1.png" },
+  { image: "/Assets/Iteration-2-aseets/footer/insta/li-2.png" },
+  { image: "/Assets/Iteration-2-aseets/footer/insta/li-3.png" },
+  { image: "/Assets/Iteration-2-aseets/footer/insta/li-4.png" },
+  { image: "/Assets/Iteration-2-aseets/footer/insta/li-5.png" },
+
+];
+
 const Footer = () => {
   return (
     <Container>
@@ -36,7 +46,7 @@ const Footer = () => {
               "Testler Geçti Mutlu Burger",
               "Position Absolute Acı Burger",
             ].map((menu, index) => (
-              <li key={index}>{menu}</li>
+              <li style={{paddingBottom:"10px"}} key={index}>{menu}</li>
             ))}
           </ul>
         </Col>
@@ -44,9 +54,9 @@ const Footer = () => {
         <Col md="4" className="media-group">
           <h5 className="social-media">Instagram</h5>
           <Row>
-            {[1, 2, 3, 4, 5, 6].map((item) => (
+            {li.map((item) => (
               <Col sm="4" key={item} className="mb-2">
-                <div className="bg-secondary"></div>
+                <img src={item.image} alt="Instagram" className="img-fluid" />
               </Col>
             ))}
           </Row>
