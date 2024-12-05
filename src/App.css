@@ -13,6 +13,7 @@ body {
 }
 
 /* Logo stilleri */
+
 header {
 
   background-position: center;
@@ -42,7 +43,7 @@ header {
 .header-bottom {
 
   background-position: center;
-background-color: #e7dfc1;
+  background-color: #e7dfc1;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -64,12 +65,12 @@ header .logo {
   width: 530px;
 }
 
-header .description {
-  font-family: "barlow";
+ header .description {
+  font-family: barlow;
   color: #FAF7F2;
   font-weight: 400;
   font-size: 4rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   line-height: 0.3;
   position: relative;
   top: -200px;
@@ -95,6 +96,16 @@ header .order-button:hover {
   transform: scale(1.05);
 }
 
+.container h4 {
+  font-family: satisfy;
+  color: #CE2829;
+}
+
+.container h2 {
+  font-family: barlow;
+  font-weight: bold;
+  color: #292929;
+}
 .success-order {
   background-color: #CE2829;
   color: white;
@@ -157,6 +168,51 @@ text-align: center;
   font-size: 1rem;
   color:#292929;
 }
+
+/* Checkbox kapsayıcı */
+.checkbox-group {
+  display: flex;
+  content: "+";
+  align-items: center;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+  /* Metin rengi */
+}
+
+/* Görünmez checkbox */
+.checkbox-group input[type="checkbox"] {
+  height: 0;
+  width: 0;
+}
+
+/* Kutunun varsayılan görünümü */
+.checkbox-group::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  /* Kenar rengi */
+  border-radius: 4px;
+  /* Kenar yuvarlatma */
+  background: #f5f5f5;
+  /* Arkaplan rengi */
+  box-sizing: border-box;
+}
+
+/* İşaretlenmiş kutu */
+.checkbox-group input[type="checkbox"] {
+  background-color: #ffd700;
+  border-color: #ffcc00;
+}
+
+
 
 
 

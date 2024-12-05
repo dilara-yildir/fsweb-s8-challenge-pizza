@@ -69,7 +69,7 @@ const PizzaCard = () => {
 
   return (
     <Container className="py-5">
-      <h5 className="text-center text-danger mb-3">en çok paketlenen menüler</h5>
+      <h4 className="text-center">en çok paketlenen menüler</h4>
       <h2 className="text-center mb-4">Acıktıran Kodlara Doyuran Lezzetler</h2>
 
       {/* Kategori Seçimi */}

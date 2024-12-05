@@ -21,17 +21,28 @@ function HomePage({navigate}) {
         }}
       >
         <img src={logo} alt="Teknolojik Yemekler" className="logo" />
+        <p
+          className="description"
+          style={{
+            fontFamily: "satisfy",
+            fontSize: "25px",
+            color: "#FDC913",
+            marginBottom: "25px",
+          }}
+        >
+          fırsatı kaçırma
+        </p>
         <p className="description">KOD ACIKTIRIR</p>
         <p className="description">PIZZA DOYURUR</p>
         <Button onClick={() => navigate("order")} className="order-button">
           ACIKTIM
         </Button>
       </header>
-    
-       <Menu setMenu={setMenu}/>
+
+      <Menu setMenu={setMenu} />
       <section className="bg-light py-5" style={{ width: "100%" }}>
-        <Cards  navigate={navigate}/>
-        <PizzaCards setPizza={setPizza}/>
+        <Cards navigate={navigate} />
+        <PizzaCards setPizza={setPizza} />
       </section>
       <footer className="bg-dark text-white py-4">
         <Footer />
