@@ -7,11 +7,9 @@ import Cards from "./sub-component/cards.jsx";
 import Footer from "./sub-component/footer.jsx";
 import PizzaCards from "./sub-component/pizza-card.jsx";
 
-
-function HomePage({navigate}) {
-  const [pizza, setPizza]= useState();
+function HomePage({ navigate }) {
+  const [pizza, setPizza] = useState();
   const [menu, setMenu] = useState();
-
 
   return (
     <div>
@@ -21,19 +19,9 @@ function HomePage({navigate}) {
         }}
       >
         <img src={logo} alt="Teknolojik Yemekler" className="logo" />
-        <p
-          className="description"
-          style={{
-            fontFamily: "satisfy",
-            fontSize: "25px",
-            color: "#FDC913",
-            marginBottom: "25px",
-          }}
-        >
-          fırsatı kaçırma
-        </p>
-        <p className="description">KOD ACIKTIRIR</p>
-        <p className="description">PIZZA DOYURUR</p>
+        <p className="description-fk">fırsatı kaçırma</p>
+        <p className="description-ka">KOD ACIKTIRIR</p>
+        <p className="description-pd">PIZZA DOYURUR</p>
         <Button onClick={() => navigate("order")} className="order-button">
           ACIKTIM
         </Button>

@@ -17,24 +17,19 @@ const Cards = ({ navigate }) => {
       <Row
         className="gy-4 mx-auto"
         style={{
-          width: "70%", 
+          width: "100%",
         }}
       >
-       
         <Col md="6">
           <Card className="text-white h-100" style={{ position: "relative" }}>
-            
             <CardImg
+              className="card-img"
               src="Assets/Iteration-2-aseets/cta/kart-1.png"
               alt="Pizza"
-              style={{
-                objectFit: "cover",
-                width: "100%",
-                height: "100%", 
-              }}
             />
-            
+
             <CardBody
+              className="card-body"
               style={{
                 position: "absolute",
                 top: 0,
@@ -42,18 +37,20 @@ const Cards = ({ navigate }) => {
                 right: 0,
                 bottom: 0,
                 flexDirection: "column",
-                borderRadius: "10px",
+                borderRadius: "30px",
               }}
             >
-              <CardTitle tag="h3" className="mb-3">
-                Özel Lezzetus
+              <CardTitle tag="h3" className="card-1">
+                <p>Özel Lezzetus</p>
               </CardTitle>
-              <CardText className="mb-4">Position Absolute Acı Burger</CardText>
+              <CardText className="card-1-description">
+                Position: Absolute Acı Burger
+              </CardText>
               <Button
+                className="card-1-button"
                 onClick={() => {
                   navigate("order");
                 }}
-                color="warning"
               >
                 Sipariş Ver
               </Button>
@@ -61,21 +58,22 @@ const Cards = ({ navigate }) => {
           </Card>
         </Col>
 
-       
         <Col md="6">
           <Row className="gy-4">
             {[
               {
                 title: "Hackathlon Burger Menü",
-                description: "Tam Kapsamlı Lezzet!",
-                buttonColor: "warning",
-                image: "Assets/Iteration-2-aseets/cta/kart-2.png", 
+                image: "Assets/Iteration-2-aseets/cta/kart-2.png",
               },
               {
-                title: "Çooook Hızlı Kurye",
-                description: "Lezzet Hızlı ve Güvenli!",
-                buttonColor: "danger",
-                image: "Assets/Iteration-2-aseets/cta/kart-3.png", 
+                title: (
+                  <>
+                    <span className="highlight-red">Çooook</span>
+                    
+                    <span className="span-title"> hızlı npm gibi kurye</span>
+                  </>
+                ),
+                image: "Assets/Iteration-2-aseets/cta/kart-3.png",
               },
             ].map((card, index) => (
               <Col md="12" key={index}>
@@ -92,7 +90,7 @@ const Cards = ({ navigate }) => {
                     style={{
                       objectFit: "cover",
                       width: "100%",
-                      height: "185px",
+                      height: "250px",
                     }}
                   />
                   <CardBody
@@ -103,16 +101,17 @@ const Cards = ({ navigate }) => {
                       width: "100%",
                       height: "100%",
                       flexDirection: "column",
-
                     }}
                   >
-                    <CardTitle tag="h5">{card.title}</CardTitle>
+                    <CardTitle tag="h5" className="card-2">
+                      {card.title}
+                    </CardTitle>
                     <CardText>{card.description}</CardText>
                     <Button
+                      className="card-2-button"
                       onClick={() => {
                         navigate("order");
                       }}
-                      color={card.buttonColor}
                     >
                       Sipariş Ver
                     </Button>
@@ -123,8 +122,6 @@ const Cards = ({ navigate }) => {
           </Row>
         </Col>
       </Row>
-
-
     </Container>
   );
 };

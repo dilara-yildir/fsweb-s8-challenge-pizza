@@ -148,8 +148,10 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
       <div className="header">
         <img src={logo} alt="Teknolojik Yemekler" style={{ width: "280px" }} />
       </div>
+
       <div className="header-bottom">
-        <img src={formBanner} />
+        <img className="header-banner" src={formBanner} />
+
         <div className="header-nav">
           <nav>
             <NavLink
@@ -182,7 +184,6 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
               Sipariş Oluştur
             </NavLink>
           </nav>
-
           <Row className="mb-4">
             <Col>
               <h5 for="title" name="title" className="pizza-title">
@@ -193,14 +194,7 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
                 <span>4.9</span>
                 <span>(200)</span>
               </div>
-              <p
-                className="pizza-description"
-                style={{
-                  lineHeight: "1.6",
-                  fontSize: "1rem",
-                  textAlign: "left",
-                }}
-              >
+              <p className="pizza-description">
                 Frontend Dev olarak hala position:absolute kullanıyorsan bu çok
                 acı pizza tam sana göre. Pizza, domates, peynir ve genellikle
                 çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel
@@ -215,7 +209,7 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
       </div>
 
       <Container
-        className="container"
+        className="select-container"
         style={{ maxWidth: "540px", margin: "35px auto", padding: "5px 5px" }}
       >
         {/* Pizza Başlık ve Açıklama */}
@@ -229,37 +223,39 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
 
             <div>
               <Row>
-                <Col sm="6">
-                  <Label for="size">Boyut Seç *</Label>
-                  {["S", "M", "L"].map((size, index) => (
-                    <Col sm="4" key={index}>
-                      <div className="radio-container">
-                        <Input
-                          type="radio"
-                          id={`size-${index}`}
-                          name="size"
-                          value={size}
-                          onChange={handleChange}
-                        />
-                        <label htmlFor={`size-${index}`}>{size}</label>
-                      </div>
-                    </Col>
-                  ))}
-                  {errors.size && (
-                    <FormText color="danger">{errors.size}</FormText>
-                  )}
+                <Col sm="6" className="size-select">
+                  <label htmlFor="size">Boyut Seç *</label>
+                  <div className="button-group">
+                    {["S", "M", "L"].map((size, index) => (
+                      <Col sm="4" key={index}>
+                        <div className="radio-container">
+                          <Input
+                            type="radio"
+                            id={`size-${index}`}
+                            name="size"
+                            value={size}
+                            onChange={handleChange}
+                          />
+                          <label htmlFor={`size-${index}`}>{size}</label>
+                        </div>
+                      </Col>
+                    ))}
+                    {errors.size && (
+                      <FormText color="danger">{errors.size}</FormText>
+                    )}
+                  </div>
                 </Col>
-                <Col sm="6">
-                  <Label for="dough">Hamur Seç *</Label>
+                <Col sm="6" className="dough-select">
+                  <label htmlFor="dough">Hamur Seç *</label>
                   <Input
                     type="select"
                     name="dough"
                     id="dough"
-                    className="select-group"
+                    className="dropdown"
                     value={formData.dough}
                     onChange={handleChange}
                   >
-                    <option value="">Hamur Kalınlığı</option>
+                    <option value="">—Hamur Kalınlığı Seç—</option>
                     <option value="İnce">İnce</option>
                     <option value="Orta">Orta</option>
                     <option value="Kalın">Kalın</option>

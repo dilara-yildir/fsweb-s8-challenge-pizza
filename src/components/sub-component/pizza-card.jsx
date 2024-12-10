@@ -19,9 +19,9 @@ const PizzaCard = () => {
     { name: "Ramen", icon: "Assets/Iteration-2-aseets/icons/1.svg" },
     { name: "Pizza", icon: "Assets/Iteration-2-aseets/icons/2.svg" },
     { name: "Burger", icon: "Assets/Iteration-2-aseets/icons/3.svg" },
-    { name: "French fries", icon: "Assets/Iteration-2-aseets/icons/3.svg" },
-    { name: "Fast food", icon: "Assets/Iteration-2-aseets/icons/3.svg" },
-    { name: "Soft drinks", icon: "Assets/Iteration-2-aseets/icons/3.svg" },
+    { name: "French fries", icon: "Assets/Iteration-2-aseets/icons/4.svg" },
+    { name: "Fast food", icon: "Assets/Iteration-2-aseets/icons/5.svg" },
+    { name: "Soft drinks", icon: "Assets/Iteration-2-aseets/icons/6.svg" },
   ];
 
   const menuItems = [
@@ -69,14 +69,14 @@ const PizzaCard = () => {
 
   return (
     <Container className="py-5">
-      <h4 className="text-center">en çok paketlenen menüler</h4>
+      <h3 className="text-center">en çok paketlenen menüler</h3>
       <h2 className="text-center mb-4">Acıktıran Kodlara Doyuran Lezzetler</h2>
 
       {/* Kategori Seçimi */}
       <Row className="justify-content-center mb-4">
         {categories.map((category, index) => (
           <Col xs="auto" key={index} className="mb-2">
-            <Button
+            <Button 
               color={activeCategory === category.name ? "dark" : "light"}
               onClick={() => setActiveCategory(category.name)}
               style={{
@@ -84,14 +84,14 @@ const PizzaCard = () => {
                 padding: "10px 20px",
                 display: "flex",
                 alignItems: "center",
+                fontWeight: "bold",
+                fontFamily: "Barlow",
               }}
             >
               <span style={{ fontSize: "20px", marginRight: "10px" }}>
-              <img src={category.icon}  className="menu-icon" />
+                <img src={category.icon} className="menu-icon" />
               </span>
-              
-              
-              
+
               {category.name}
             </Button>
           </Col>
@@ -100,7 +100,7 @@ const PizzaCard = () => {
 
       {/* Menü Kartları */}
       <Row className="justify-content-center">
-        <Col md="8"> 
+        <Col md="8">
           <Row className="gy-4">
             {menuItems
               .filter((item) => item.category === activeCategory)
@@ -119,15 +119,22 @@ const PizzaCard = () => {
                       }}
                     />
                     <CardBody>
-                      <CardTitle style={{textAlign:"left"}} tag="h5">{item.title}</CardTitle>
+                      <CardTitle style={{ textAlign: "left" }} tag="h5">
+                        {item.title}
+                      </CardTitle>
                       <div
                         className="d-flex align-items-center justify-content-between"
-                        style={{ fontSize: "14px",  margin: "10px 0" }}
+                        style={{ fontSize: "10px", margin: "10px 0" }}
                       >
                         {/* Puan ve Yorumlar */}
                         <div className="d-flex align-items-center">
-                          <span style={{ marginRight: "5px" }}>{item.rating} </span>
-                          <span className="text-muted" style={{ marginLeft: "5px" }}>
+                          <span style={{ marginRight: "5px" }}>
+                            {item.rating}{" "}
+                          </span>
+                          <span
+                            className="text-muted"
+                            style={{ marginLeft: "5px" }}
+                          >
                             ({item.reviews})
                           </span>
                         </div>
@@ -151,7 +158,6 @@ const PizzaCard = () => {
         </Col>
       </Row>
     </Container>
-
   );
 };
 
