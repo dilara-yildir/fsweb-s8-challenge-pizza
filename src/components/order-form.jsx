@@ -63,6 +63,7 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
       }));
     } else {
       setFormData({ ...formData, [name]: value });
+      
     }
   };
   const handleQuantityChange = (type) => {
@@ -101,6 +102,8 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
     // Seçimlerin toplamı: Total - toppings
     return total - toppingsCost * 2;
   };
+
+  
 
   const validate = () => {
     const newErrors = {};
@@ -376,7 +379,7 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
               </FormGroup>
             </Col>
             <Col sm="6" style={{ marginBottom: 50 }}>
-              <Card className="p-3">
+              <Card className="siparis-card">
                 <CardBody>
                   <h5>Sipariş Toplamı</h5>
 

@@ -280,8 +280,7 @@ header .order-button:hover {
   color:#292929;
 }
 
-.size-select{
-}
+
 
 input[type="checkbox"] {
   display: none;
@@ -296,7 +295,6 @@ input[type="checkbox"]+label {
   font-size: 16px;
   font-family: Barlow, sans-serif;
   color: #333;
-  border: 2px solid #FAF7F2;
   border-radius: 4px;
   padding: 10px 20px;
   background-color: #fff;
@@ -318,7 +316,6 @@ input[type="checkbox"]+label::before {
   display: inline-block;
   width: 35px;
   height: 35px;
-  border: 2px solid #ccc;
   border-radius: 4px;
   background-color: #FAF7F2;
   margin-right: 10px;
@@ -340,35 +337,13 @@ input[type="checkbox"]+label {
   font-size: 16px;
   font-family: Barlow, sans-serif;
   color: #333;
-  border: 2px solid #FAF7F2;
   border-radius: 4px;
   padding: 10px 20px;
   background-color: #fff;
   transition: all 0.3s ease;
 }
 
-input[type="checkbox"]:checked+label::before {
-  content: "✓";
-  color: #2f2d26;
-  background-color: #FDC913;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-}
 
-input[type="checkbox"]+label::before {
-  content: "";
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #FAF7F2;
-  margin-right: 10px;
-  display: flex;
-  flex-shrink: 0;
-}
 
 /*------*/
 .size-select {
@@ -403,7 +378,7 @@ input[type="checkbox"]+label::before {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background-color: #f7f7f7;
+  background-color:#FAF7F2;
   font-size: 16px;
   color: #333;
   cursor: pointer;
@@ -423,14 +398,13 @@ input[type="checkbox"]+label::before {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: transparent;
-  transition: background-color 0.3s ease;
+
 }
 
 .size-select .radio-container input[type="radio"]:checked+label::after {
-  background-color: #FDC913;
-  background: transparent;
-  transition: background-color 0.3s ease;
+  background-color: #FAF7F2;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
 }
 
@@ -455,7 +429,7 @@ input[type="checkbox"]+label::before {
   margin-top: 15px;
   padding: 10px;
   border-radius: 5px;
-  background-color: #f7f7f7;
+  background-color: #FAF7F2;
   font-size: 14px;
   color: #333;
   cursor: pointer;
@@ -487,6 +461,15 @@ input[type="checkbox"]+label::before {
   border-bottom-left-radius: 0px;
 }
 
+.siparis-card {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #FAF7F2;
+}
+
 
 /*succes-order*/
 .success-order .logo {
@@ -512,6 +495,7 @@ input[type="checkbox"]+label::before {
    margin: 50px auto;
    max-width: 500px;
    padding: 20px;
+   background-color: #FAF7F2;
  }
 
  .order-title {
