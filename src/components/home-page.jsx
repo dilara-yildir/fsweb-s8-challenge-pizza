@@ -13,15 +13,11 @@ function HomePage({ navigate }) {
 
   return (
     <div>
-      <header
-        style={{
-          backgroundImage: `url(${bannerImage})`,
-        }}
-      >
+      <header>
         <img src={logo} alt="Teknolojik Yemekler" className="logo" />
-        <p className="description-fk">fırsatı kaçırma</p>
-        <p className="description-ka">KOD ACIKTIRIR</p>
-        <p className="description-pd">PIZZA DOYURUR</p>
+        <h1 className="description-fk">fırsatı kaçırma</h1>
+        <h1 className="description-ka">KOD ACIKTIRIR</h1>
+        <h1 className="description-pd">PIZZA DOYURUR</h1>
         <Button onClick={() => navigate("order")} className="order-button">
           ACIKTIM
         </Button>

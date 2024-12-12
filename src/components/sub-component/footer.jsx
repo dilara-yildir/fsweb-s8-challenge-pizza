@@ -6,7 +6,7 @@ import PhoneIcon from "/Assets/Iteration-2-aseets/footer/icons/icon-3.png";
 import logo from "/Assets/Iteration-2-aseets/footer/logo-footer.svg";
 
 const li = [
-  { image: "/Assets/Iteration-2-aseets/footer/insta/li-0.png" },  
+  { image: "/Assets/Iteration-2-aseets/footer/insta/li-0.png" },
   { image: "/Assets/Iteration-2-aseets/footer/insta/li-1.png" },
   { image: "/Assets/Iteration-2-aseets/footer/insta/li-2.png" },
   { image: "/Assets/Iteration-2-aseets/footer/insta/li-3.png" },
@@ -20,7 +20,7 @@ const Footer = () => {
     <Container>
       <Row>
         <Col md="4">
-           <img src={logo} alt="Teknolojik Yemekler" className="logo-footer" />
+          <img src={logo} alt="Teknolojik Yemekler" className="logo-footer" />
           <p className="d-flex align-items-center">
             <img src={AddressIcon} alt="Address Icon" className="footer-icon" />
             341 Londonderry Road, İstanbul Türkiye
@@ -35,7 +35,7 @@ const Footer = () => {
           </p>
         </Col>
 
-        <Col md="4">
+        <Col md="3">
           <h6 className="footer-title">Hot Menu</h6>
           <ul className="list-unstyled">
             {[
@@ -46,20 +46,22 @@ const Footer = () => {
               "Testler Geçti Mutlu Burger",
               "Position Absolute Acı Burger",
             ].map((menu, index) => (
-              <li style={{paddingBottom:"10px"}} key={index}>{menu}</li>
+              <li style={{ paddingBottom: "10px" }} key={index}>{menu}</li>
             ))}
           </ul>
         </Col>
 
-        <Col md="4" className="media-group">
+        <Col md="3" className="media-group">
           <h5 className="social-media">Instagram</h5>
-          <Row>
-            {li.map((item) => (
-              <Col sm="4" key={item} className="mb-2">
-                <img src={item.image} alt="Instagram" className="img-fluid" />
-              </Col>
-            ))}
-          </Row>
+          {Array.from({ length: Math.ceil(li.length / 3) }, (_, i) => (
+            <Row key={i} className="mb-2">
+              {li.slice(i * 3, i * 3 + 3).map((item, index) => (
+                <Col sm="4" key={index} className="mb-2">
+                  <img src={item.image} alt="Instagram" className="img-fluid" />
+                </Col>
+              ))}
+            </Row>
+          ))}
         </Col>
       </Row>
     </Container>

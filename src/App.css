@@ -8,7 +8,7 @@
 body {
   margin: 0;
   background-color: white;
-  color:  #FAF7F2;
+  color: #FAF7F2;
   text-align: center;
 }
 
@@ -25,7 +25,19 @@ header {
   justify-content: center;
   align-items: center;
   color: #FAF7F2;
+  margin: 0;
+  /* Varsayılan boşlukları kaldırır */
+  height: 100vh;
+  /* Sayfanın tamamını kaplar */
+  background-image: url(/Assets/Iteration-1-assets/home-banner.png);
+  background-size: cover;
+  /* Resmi sayfayı dolduracak şekilde ölçeklendirir */
+  background-repeat: no-repeat;
+  /* Tekrarlamayı engeller */
+  background-position: center;
+  /* Resmi merkeze hizalar */
 }
+
 .header-top {
   background-position: center;
   height: 100vh;
@@ -47,11 +59,12 @@ header .logo {
   position: relative;
   top: -250px;
 }
+
 .header-nav {
   width: 530px;
 }
 
- .description-ka{
+.description-ka {
   font-family: barlow;
   color: #FAF7F2;
   font-weight: 400;
@@ -60,9 +73,9 @@ header .logo {
   line-height: 0.3;
   position: relative;
   top: -200px;
- }
+}
 
- .description-pd{
+.description-pd {
   font-family: 'barlow';
   color: #FAF7F2;
   font-weight: 400;
@@ -70,7 +83,8 @@ header .logo {
   margin-bottom: 3rem;
   line-height: 0.3;
   position: relative;
-  top: -200px;}
+  top: -200px;
+}
 
 .description-fk {
   font-family: 'Satisfy';
@@ -82,9 +96,9 @@ header .logo {
   line-height: 0.3;
   position: relative;
   top: -200px;
-  }
- 
-  /*-------------------------Home-page -------------------*/ 
+}
+
+/*-------------------------Home-page -------------------*/
 header .order-button {
   font-family: 'barlow';
   font-weight: bold;
@@ -128,33 +142,33 @@ header .order-button:hover {
 .card-1 p {
   color: #FAF7F2;
   font-family: quattrocento;
-  font-size:  65px;
+  font-size: 65px;
   width: 300px;
   font-weight: bold;
   padding-left: 30px;
   margin-top: 25px;
 }
 
-.card-1-description  {
+.card-1-description {
   font-family: barlow;
   font-size: 20px;
   padding-left: 30px;
   margin-top: -10px;
-  
+
 }
 
 .card-1-button,
 .card-2-button,
 .card-body button {
-  background-color: #FAF7F2!important;
-  color:#CE2829 !important;
+  background-color: #FAF7F2 !important;
+  color: #CE2829 !important;
   border-radius: 30px;
   font-weight: bold;
   padding: 10px 30px;
   margin-top: 10px;
   transition: all 0.3s ease;
   border: none;
-  
+
 }
 
 .card-1-button {
@@ -167,7 +181,7 @@ header .order-button:hover {
 
 .card-1-button:hover,
 .card-body button:hover {
-  background-color:#FAF7F2 !important;
+  background-color: #FAF7F2 !important;
 }
 
 
@@ -184,11 +198,11 @@ header .order-button:hover {
 
 .card-2 {
   color: #FAF7F2;
-    font-size: 30px;
-    width:250px;
-    font-weight: bold;
-    padding-left: 30px;
-    margin-top: 25px;
+  font-size: 30px;
+  width: 250px;
+  font-weight: bold;
+  padding-left: 30px;
+  margin-top: 25px;
 }
 
 
@@ -229,27 +243,28 @@ header .order-button:hover {
 /* ---------------order-form-----------------------*/
 
 .header {
- background-color: #CE2829;
- padding: 25px 0;
- text-align: center;
+  background-color: #CE2829;
+  padding: 25px 0;
+  text-align: center;
 }
 
 .header-bottom {
-  background-color:#FAF7F2;
+  background-color: #FAF7F2;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #FAF7F2;
 }
+
 .header-bottom img {
   width: 500px;
   margin-bottom: 6rem;
-  
+
 }
 
-.header-nav{
+.header-nav {
   margin-top: -35px;
-  
+
 }
 
 .pizza-title {
@@ -260,10 +275,12 @@ header .order-button:hover {
 }
 
 .pizza-price {
-  margin-top: 35px;
+  float: left;
+  margin-top: 20px;
+  justify-content: flex-start!important;
   font-family: barlow;
   font-weight: bold;
-  color:#292929;
+  color: #292929;
 }
 
 .pizza-description {
@@ -274,10 +291,12 @@ header .order-button:hover {
 }
 
 .pizza-rating {
+  justify-content: flex-end;
+  margin-top: 35px;
+  margin-bottom: 35px;
   display: flex;
-  justify-content: space-between;
   font-size: 1rem;
-  color:#292929;
+  color: #292929;
 }
 
 
@@ -352,12 +371,12 @@ input[type="checkbox"]+label {
 }
 
 .size-select label {
- font-size: 18px;
- font-weight: bold;
- font-family: barlow;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: barlow;
 }
 
- .button-group {
+.button-group {
   display: flex;
 }
 
@@ -378,7 +397,7 @@ input[type="checkbox"]+label {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background-color:#FAF7F2;
+  background-color: #FAF7F2;
   font-size: 16px;
   color: #333;
   cursor: pointer;
@@ -388,7 +407,7 @@ input[type="checkbox"]+label {
 
 .size-select .radio-container input[type="radio"]:checked+label {
   background-color: #FDC913;
- }
+}
 
 .size-select .radio-container label::after {
   content: attr(data-size);
@@ -477,57 +496,60 @@ input[type="checkbox"]+label {
   margin-bottom: 4rem;
   margin-top: 50px;
 }
- .main-title {
+
+.main-title {
   font-size: 2.5rem;
   font-weight: bold;
 }
 
- .sub-title {
+.sub-title {
   font-family: satisfy;
   font-size: 1.5rem;
   margin-top: 10px;
   font-style: italic;
   color: #ffcc00;
 }
- 
 
- .order-container {
-   margin: 50px auto;
-   max-width: 500px;
-   padding: 20px;
-   background-color: #FAF7F2;
- }
 
- .order-title {
-   font-size: 2rem;
-   margin-bottom: 10px;
-   letter-spacing: 2px;
- }
+.order-container {
+  margin: 50px auto;
+  max-width: 500px;
+  padding: 20px;
+  background-color: #FAF7F2;
+}
 
- .pizza-info {
+.order-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.pizza-info {
   flex-direction: column;
   align-items: center;
   text-align: left;
- }
-.pizza-info h5{
+}
+
+.pizza-info h5 {
   font-family: barlow;
 }
- .pizza-info p {
-   font-family: barlow;
-   padding: 20px;
-   margin-top: 20px;
-   font-size: 16px;
-   line-height: 1.6;
-   margin: auto;
-   max-width: 300px;
 
- }
+.pizza-info p {
+  font-family: barlow;
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: auto;
+  max-width: 300px;
 
- .highlight {
-   font-weight: bold;
- }
+}
 
-.order-total  { 
+.highlight {
+  font-weight: bold;
+}
+
+.order-total {
   font-family: barlow;
   flex-direction: column;
   align-items: center;
@@ -537,8 +559,8 @@ input[type="checkbox"]+label {
   width: 400px;
   padding: 20px;
   margin: 20px;
-  
-  
+
+
 }
 
 .order-total p {
@@ -563,6 +585,7 @@ input[type="checkbox"]+label {
   margin: auto;
   max-width: 300px;
 }
+
 .total {
   font-family: barlow;
   display: flex;
@@ -591,12 +614,12 @@ input[type="checkbox"]+label {
 
 
 
-.logo-footer{
+.logo-footer {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
 
-.footer-icon{
+.footer-icon {
   width: 20px;
   height: 20px;
   margin-right: 8px;
@@ -607,7 +630,7 @@ input[type="checkbox"]+label {
   align-items: center;
 }
 
-.footer-title{
+.footer-title {
   margin-top: 50px;
   font-family: barlow;
   font-size: 20px;
@@ -615,13 +638,13 @@ input[type="checkbox"]+label {
 
 }
 
-.social-media{
+.social-media {
   margin-top: 50px;
   font-family: barlow;
   font-size: 20px;
 }
 
-.media-group{
+.media-group {
   display: flex;
   flex-direction: column;
   height: 100px;
@@ -630,38 +653,144 @@ input[type="checkbox"]+label {
 }
 
 
-.bg-secondary{
+.bg-secondary {
   display: flex;
   height: 60px;
   width: 60px;
-  
+
 }
 
-.list-unstyled  {
+.list-unstyled {
   display: flex;
   flex-direction: column;
   gap: 5px;
   margin: 10px;
   padding: 10px;
-  
+
 }
 
+@media (min-width: 350px) and (max-width: 768px) {
 
+  .media-group
+  {
+    height: auto;
+  }
+  .navbar-nav {
+    display: contents !important;
+    width: 250px !important;
+  }
+  footer .row{
+    display: contents !important;
 
-
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
   }
 
-  to {
-    transform: rotate(360deg);
+  footer .row>*{
+    display: inline !important;
+  }
+
+  header .description-ka {
+    flex-wrap: wrap;
+    text-align: center;
+    line-height: 1;
+  }
+
+  header .description-pd {
+    flex-wrap: wrap;
+    text-align: center;
+    line-height: 1;
+  }
+  .navbar-nav {
+    display: contents !important;
+    width: 250px !important;
+  }
+
+  .navbar>.container-fluid {
+    width: 350px !important;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (min-width: 768px) and (max-width: 939px) {
+
+  .media-group
+  {
+    height: auto;
   }
+  .navbar-nav {
+    display: contents !important;
+    width: 250px !important;
+  }
+
+  header .description-ka {
+    flex-wrap: wrap;
+    text-align: center;
+    line-height: 1;
+  }
+
+  header .description-pd {
+    flex-wrap: wrap;
+    text-align: center;
+    line-height: 1;
+  }
+  .navbar-nav {
+    display: contents !important;
+    width: 250px !important;
+  }
+
+  .navbar>.container-fluid {
+    width: 350px !important;
+  }
+}
+
+@media (max-width: 939px) {
+  header .description-ka {
+    flex-wrap: wrap;
+    text-align: center;
+    line-height: 1;
+  }
+
+  header .description-pd {
+    flex-wrap: wrap;
+    text-align: center;
+    line-height: 1;
+  }
+
+
+
+  .navbar-nav {
+    display: contents !important;
+    width: 250px !important;
+  }
+
+  .navbar>.container-fluid {
+    width: 350px !important;
+  }
+}
+
+@media (min-width: 940px) and (max-width: 1388px) {
+
+  .navbar-nav {
+    display: contents !important;
+    width: 250px !important;
+  }
+
+  header .description-ka {
+
+    flex-wrap: wrap;
+
+    text-align: center;
+    line-height: 1;
+  }
+
+  header .description-pd {
+
+    flex-wrap: wrap;
+
+    text-align: center;
+    line-height: 1;
+  }
+
+
+
+
+
 }
