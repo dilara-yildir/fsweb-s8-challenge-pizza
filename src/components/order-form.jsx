@@ -65,18 +65,12 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
         ...prevData,
         quantity: parseInt(value, 10),
       }));
-    }
-
-    else if (name === "name") {
-
+    } else if (name === "name") {
       setFormData({ ...formData, [name]: value });
     } else if (name === "specialInstructions") {
       setFormData({ ...formData, [name]: value });
-    }
-
-    else {
+    } else {
       setFormData({ ...formData, [name]: value });
-
     }
   };
   const handleQuantityChange = (type) => {
@@ -86,12 +80,11 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
         type === "increase"
           ? prevData.quantity + 1
           : prevData.quantity > 1
-            ? prevData.quantity - 1
-            : 1,
+          ? prevData.quantity - 1
+          : 1,
     }));
   };
   const calculateTotal = () => {
-
     const basePrice =
       formData.size === "L" ? 85 : formData.size === "M" ? 70 : 60;
     if (!formData.size) return 0;
@@ -119,16 +112,14 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
     return total - toppingsCost * 2;
   };
 
-
-
   const validate = () => {
     const newErrors = {};
     if (formData.size === "") newErrors.size = "Boyut Seçiniz";
     if (formData.dough === "") newErrors.dough = "Hamur Seçimi Yapınız";
-    if (formData.name.length < 3) newErrors.name = "En az 3 karakter giriniz";
+    if (formData.name === undefined || formData.name.length < 3)
+      newErrors.name = "En az 3 karakter giriniz";
     if (formData.toppings.length < 4)
       newErrors.toppings = "En az dört malzeme seçiniz";
-
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -180,26 +171,26 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
               style={() =>
                 currentPage == "home"
                   ? {
-                    fontWeight: "bold",
-                    color: "black",
-                    textDecoration: "none",
-                  }
+                      fontWeight: "bold",
+                      color: "#292929",
+                      textDecoration: "none",
+                    }
                   : { color: "black", textDecoration: "none" }
               }
             >
               Anasayfa
             </NavLink>
-            <span style={{ color: "white" }}>{" > "}</span>
+            <span style={{ color: "#292929" }}>{" - "}</span>
             <NavLink
               onClick={() => navigate("order")}
               style={() =>
                 currentPage == "order"
                   ? {
-                    fontWeight: "bold",
-                    color: "black",
-                    textDecoration: "none",
-                  }
-                  : { color: "black", textDecoration: "none" }
+                      fontWeight: "bold",
+                      color: " #CE2829",
+                      textDecoration: "none",
+                    }
+                  : { color: " #CE2829", textDecoration: "none" }
               }
             >
               Sipariş Oluştur
@@ -212,8 +203,7 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
               </h5>
               <h4 className="pizza-price">85.50₺</h4>
               <div className="pizza-rating">
-              
-                <span style={{marginRight:"70px"}}>4.9</span>
+                <span style={{ marginRight: "70px" }}>4.9</span>
                 <span>(200)</span>
               </div>
               <p className="pizza-description">
@@ -262,7 +252,6 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
                         </div>
                       </Col>
                     ))}
-
                   </div>
                   {errors.size && (
                     <FormText color="danger">{errors.size}</FormText>
@@ -277,7 +266,11 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
                     className="dropdown"
                     value={formData.dough}
                     onChange={handleChange}
-                    style={{backgroundColor: "#FAF7F2",border: "none",borderRadius: "5px"}}
+                    style={{
+                      backgroundColor: "#FAF7F2",
+                      border: "none",
+                      borderRadius: "5px",
+                    }}
                   >
                     <option value="">—Hamur Kalınlığı Seç—</option>
                     <option value="İnce">İnce</option>
@@ -293,7 +286,7 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
           </FormGroup>
 
           <FormGroup>
-            <Label>Ek Malzemeler</Label>
+            <Label className="toppings">Ek Malzemeler</Label>
             <p className="text-muted">En fazla 10 malzeme seçebilirsiniz. 5₺</p>
             <Row>
               {Object.keys(toppingsPrices).map((topping, index) => (
@@ -322,33 +315,48 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
 
           <FormGroup>
             <Form>
-              Ad Soyad
+              <Label className="name-area"> Ad Soyad</Label>
               <Input
                 type="text"
                 name="name"
                 placeholder="Ad Soyad Giriniz"
+                className="name-input"
                 value={formData.name}
                 onChange={handleChange}
                 required={true}
-                style={{ backgroundColor: "#FAF7F2", border: "none", borderRadius: "5px" }}
-
+                style={{
+                  backgroundColor: "#FAF7F2",
+                  border: "none",
+                  borderRadius: "5px",
+                  marginBottom: "15px",
+                }}
               />
-              {errors.name && (
-                <FormText color="danger">{errors.name}</FormText>
-              )}
+              {errors.name && <FormText color="danger">{errors.name}</FormText>}
             </Form>
-            <Label for="specialInstructions">Sipariş Notu</Label>
+            <Label
+              className="order-note
+"
+            >
+              Sipariş Notu
+            </Label>
             <Input
-              style={{ height: "100px", backgroundColor: "#FAF7F2", border: "none", borderRadius: "5px" }}
+              style={{
+                height: "100px",
+                backgroundColor: "#FAF7F2",
+                border: "none",
+                borderRadius: "5px",
+                marginBottom: "15px",
+              }}
               type="textarea"
               id="specialInstructions"
+              className="order-input"
               name="specialInstructions"
               placeholder="Siparişine eklemek istediğin bir not var mı?"
               value={formData.specialInstructions}
               onChange={handleChange}
             />
             <Form>
-              <Label>Teslimat Seçeneği</Label>
+              <Label className="delivery">Teslimat Seçeneği</Label>
               <div className="checkbox-group">
                 <Input
                   type="checkbox"
@@ -359,12 +367,7 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
                 <label htmlFor={`topping-`}>Hızlı Teslimat + 50₺</label>
               </div>
             </Form>
-
-
-
-
           </FormGroup>
-
 
           <hr style={{ marginTop: "30px", marginBottom: "30px" }} />
 
@@ -424,8 +427,11 @@ const OrderForm = ({ navigate, currentPage, pizza, selectPizza, setOrder }) => {
               </FormGroup>
             </Col>
             <Col sm="6" style={{ marginBottom: 50 }}>
-              <Card className="siparis-card" style={{ backgroundColor: "#FAF7F2"}}>
-                <CardBody >
+              <Card
+                className="siparis-card"
+                style={{ backgroundColor: "#FAF7F2" }}
+              >
+                <CardBody>
                   <h5>Sipariş Toplamı</h5>
 
                   <Row style={{ color: "#292929" }}>

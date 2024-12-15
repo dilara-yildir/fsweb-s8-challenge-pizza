@@ -263,7 +263,8 @@ header .order-button:hover {
 }
 
 .header-nav {
-  margin-top: -35px;
+  font-family: barlow;
+  margin-top: -40px;
 
 }
 
@@ -271,7 +272,7 @@ header .order-button:hover {
   margin-top: 35px;
   font-family: barlow;
   font-weight: bold;
-  color: #292929;
+  color:#292929;
 }
 
 .pizza-price {
@@ -288,6 +289,7 @@ header .order-button:hover {
   font-size: 1rem;
   text-align: left;
   color: #292929;
+  font-family: barlow;
 }
 
 .pizza-rating {
@@ -297,6 +299,7 @@ header .order-button:hover {
   display: flex;
   font-size: 1rem;
   color: #292929;
+  font-family: barlow;
 }
 
 
@@ -312,7 +315,7 @@ input[type="checkbox"]+label {
   gap: 5px;
   cursor: pointer;
   font-size: 16px;
-  font-family: Barlow, sans-serif;
+  font-family: barlow;
   color: #333;
   border-radius: 4px;
   padding: 10px 20px;
@@ -322,7 +325,7 @@ input[type="checkbox"]+label {
 
 input[type="checkbox"]:checked+label::before {
   content: "✓";
-  color: #2f2d26;
+  color: #292929;
   background-color: #FDC913;
   display: flex;
   justify-content: center;
@@ -354,15 +357,19 @@ input[type="checkbox"]+label {
   gap: 5px;
   cursor: pointer;
   font-size: 16px;
-  font-family: Barlow, sans-serif;
-  color: #333;
+
+  font-family: barlow;  color: #292929;
   border-radius: 4px;
   padding: 10px 20px;
   background-color: #fff;
   transition: all 0.3s ease;
 }
 
-
+.toppings {
+  font-family: barlow;
+  color: #292929;
+  font-weight: bold;
+}
 
 /*------*/
 .size-select {
@@ -371,10 +378,10 @@ input[type="checkbox"]+label {
 }
 
 .size-select label {
+  color: #292929;
   font-size: 18px;
   font-weight: bold;
-  font-family: barlow;
-}
+  font-family: barlow;}
 
 .button-group {
   display: flex;
@@ -387,6 +394,7 @@ input[type="checkbox"]+label {
 }
 
 .size-select .radio-container input[type="radio"] {
+  
   display: none;
 }
 
@@ -399,8 +407,7 @@ input[type="checkbox"]+label {
   border-radius: 50%;
   background-color: #FAF7F2;
   font-size: 16px;
-  color: #333;
-  cursor: pointer;
+  color: #292929;  cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
 }
@@ -436,10 +443,10 @@ input[type="checkbox"]+label {
 }
 
 .dough-select label {
+  color: #292929;
   font-size: 18px;
   font-weight: bold;
-  font-family: barlow;
-}
+  font-family: barlow;}
 
 .dough-select .dropdown {
   width: 100%;
@@ -456,7 +463,32 @@ input[type="checkbox"]+label {
 }
 
 
+.name-area{
+  color: #292929;
+  font-weight: bold;
+    font-family: barlow;
+}
+.name-input{
+  border-radius: 5px;
+  font-family: barlow;
+  border: none;
+  background-color: #FAF7F2;
+}
 
+.order-note{
+  color: #292929;
+  font-family: barlow;
+  font-weight: bold;
+}
+.order-input{
+  font-family: barlow;
+}
+
+.delivery{
+  font-family: barlow;
+  color: #292929;
+  font-weight: bold;
+}
 .quantity-container {
   display: flex;
   align-items: center;
@@ -481,6 +513,7 @@ input[type="checkbox"]+label {
 }
 
 .siparis-card {
+  font-family: barlow;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -691,7 +724,7 @@ input[type="checkbox"]+label {
   header .description-ka {
     flex-wrap: wrap;
     text-align: center;
-    line-height: 1;
+    line-height: 1rem;
   }
 
   header .description-pd {
