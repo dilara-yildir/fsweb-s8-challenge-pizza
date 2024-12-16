@@ -1,4 +1,5 @@
 describe('Pizza Sipariş Testi', () => {
+
     beforeEach(() => {
         //başlangıç adresi
         cy.visit('http://localhost:5173'); 
